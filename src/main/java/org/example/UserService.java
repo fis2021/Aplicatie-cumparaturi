@@ -28,6 +28,26 @@ public class UserService {
         userRepository.insert(new User(username, encodePassword(username, password), role));
     }
 
+    public static String verifyCredentials(String username, String password) throws InvalidCredentialsException{
+        password=encodePassword(username,password);
+        try{
+            checkUserDoesNotAlreadyExist(username);
+            throw new InvalidCredentialsException();
+           // return "Eroare";
+        }
+        catch (UsernameAlreadyExistsException e) {
+            for (User user : userRepository.find()) {
+                if (Objects.equals(username, user.getUsername())) {
+                    if (Objects.equals(password, user.getPassword()) == false)
+                        throw new InvalidCredentialsException();
+                    else return user.getRole();
+                }
+            }
+        }
+        return "Eroare";
+
+    }
+
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()))

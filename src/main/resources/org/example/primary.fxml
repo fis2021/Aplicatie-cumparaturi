@@ -23,10 +23,11 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <TextField promptText="Username" />
-      <PasswordField prefHeight="31.0" prefWidth="84.0" promptText="Password" />
+      <TextField promptText="Username" fx:id="username"/>
+      <PasswordField prefHeight="31.0" prefWidth="84.0" promptText="Password" fx:id="password"/>
       <Button fx:id="primaryButton" onAction="#switchToSecondary" text="Nu ai cont?" />
-      <Button mnemonicParsing="false" text="Login" />
+      <Button mnemonicParsing="false" text="Login" onAction="#handleLoginAction" />
+      <Text fx:id="message" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

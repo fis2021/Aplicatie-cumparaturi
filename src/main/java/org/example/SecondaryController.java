@@ -26,14 +26,20 @@ public class SecondaryController {
     @FXML
     private ImageView lockView;
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+       // rol.getItems().addAll("Client","Vanzator");
+      //  rol.getItems().addAll("CLient","Vanzator");
 
-        rol.getItems().addAll("Client", "Vanzator");
+
+    @FXML
+    public void initialize() {
+        rol.getItems().addAll("Client","Vanzator");
+
         File lockFile =  new File("Images/padlock_PNG9428.png");
         Image lockImage = new Image(lockFile.toURI().toString());
         lockView.setImage(lockImage);
     }
 
+    @FXML
     public void handleRegisterAction() {
         try {
             UserService.addUser(usernameField.getText(), passwordField.getText(), (String) rol.getValue());
