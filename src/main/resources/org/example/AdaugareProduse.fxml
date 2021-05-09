@@ -7,13 +7,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.AdaugareProduse">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.AdaugareProduseController">
    <children>
       <Label layoutX="202.0" layoutY="132.0" text="Adaugare Produse ">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <Button onAction="#SwitchToHome" layoutX="252.0" layoutY="215.0" mnemonicParsing="false" text="Acasa" />
    </children>
 </AnchorPane>

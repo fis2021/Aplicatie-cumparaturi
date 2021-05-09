@@ -34,7 +34,7 @@ public class PrimaryController {
         try {
            rol= UserService.verifyCredentials(username.getText(), password.getText());
            // message.setText("Account created successfully!");
-           if(rol == "Client") App.setRoot("HomePageClient.fxml");
+           if(rol.equals(new String("Client"))) App.setRoot("HomePageClient.fxml");
            else App.setRoot("HomePageVanzator.fxml");
         } catch (InvalidCredentialsException e) {
             message.setText(e.getMessage());
