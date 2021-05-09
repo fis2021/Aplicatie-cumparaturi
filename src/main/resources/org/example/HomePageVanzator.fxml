@@ -17,29 +17,34 @@
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Adaugare produse">
+            <Button mnemonicParsing="false" onAction="#SwitchToAdaugareProduse" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Adaugare produse">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="76.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Editare produse">
+            <Button mnemonicParsing="false" onAction="#SwitchToEditareProduse" prefHeight="76.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Editare produse">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="68.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Stergere Produse">
+            <Button mnemonicParsing="false" onAction="#SwitchToStergereProduse" prefHeight="68.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Stergere Produse">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="73.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Comenzi">
+            <Button mnemonicParsing="false" onAction="#SwitchToComenzi" prefHeight="73.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Comenzi">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button onAction="#SwitchToLogin" mnemonicParsing="false" prefHeight="31.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Deconectare">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Button>
          </children>
       </VBox>
-      <ImageView fitHeight="233.0" fitWidth="393.0" layoutX="208.0">
+      <ImageView fx:id="FundalVanzator" fitHeight="233.0" fitWidth="393.0" layoutX="208.0">
          <image>
             <Image url="@../../../../../Images/fundal_vanzator.jpg" />
          </image>

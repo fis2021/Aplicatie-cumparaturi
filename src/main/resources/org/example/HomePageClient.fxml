@@ -32,6 +32,11 @@
                   <Font name="Cambria" size="18.0" />
                </font>
             </Button>
+            <Button onAction="#SwitchToLogin" mnemonicParsing="false" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: trasparent;" text="Deconectare">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
       <ImageView fx:id="FundalClient" fitHeight="210.0" fitWidth="415.0" layoutX="182.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">

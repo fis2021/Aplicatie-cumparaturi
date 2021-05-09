@@ -7,13 +7,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.IstoricComenzi">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.IstoricComenziController">
    <children>
       <Label layoutX="219.0" layoutY="163.0" prefHeight="43.0" prefWidth="191.0" text="Istoric Comenzi">
          <font>
             <Font name="Cambria" size="24.0" />
          </font>
       </Label>
+      <Button onAction="#SwitchToHome"  layoutX="260.0" layoutY="253.0" mnemonicParsing="false" text="Acasa" />
    </children>
 </AnchorPane>

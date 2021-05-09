@@ -33,5 +33,10 @@ public class HomePageClientController {
         App.setRoot("VizProduse.fxml");
     }
 
+    @FXML
+    private void SwitchToLogin() throws IOException{
+        App.setRoot("primary.fxml");
+    }
+
 }
 
