@@ -17,24 +17,24 @@
                   <Font name="Cambria" size="18.0" />
                </font>
             </Button>
-            <Button onAction="#SwitchToIstoric" mnemonicParsing="false" prefHeight="80.0" prefWidth="182.0" style="-fx-background-color: #1AECDB;" text="Istoric Comenzi">
+            <Button mnemonicParsing="false" onAction="#SwitchToIstoric" prefHeight="80.0" prefWidth="182.0" style="-fx-background-color: #1AECDB;" text="Istoric Comenzi">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button onAction="#SwitchToCos" mnemonicParsing="false" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: #1AECDB;" text="Cos de cumparaturi">
+            <Button mnemonicParsing="false" onAction="#SwitchToCos" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: #1AECDB;" text="Cos de cumparaturi">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Button>
-            <Button onAction="#SwitchToProduse" mnemonicParsing="false" prefHeight="85.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;" text="Vizualizare produse">
+            <Button mnemonicParsing="false" onAction="#SwitchToProduse" prefHeight="85.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;" text="Vizualizare produse">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Button>
          </children>
       </VBox>
-      <ImageView fx:id="FundalClient" fitHeight="309.0" fitWidth="420.0" layoutX="177.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="FundalClient" fitHeight="210.0" fitWidth="415.0" layoutX="182.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../fundal_client.jpg" />
          </image>

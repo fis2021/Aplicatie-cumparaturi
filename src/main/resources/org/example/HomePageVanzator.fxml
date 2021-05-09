@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,12 +8,45 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.HomePageVanzatorController">
    <children>
-      <Label layoutX="138.0" layoutY="161.0" text="Bine ai venit, vanzatorule!" textFill="#253a80">
+      <VBox layoutX="-2.0" prefHeight="404.0" prefWidth="212.0" style="-fx-background-color: #E3B8F5;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Acasa">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Adaugare produse">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="76.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Editare produse">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="68.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Stergere Produse">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="73.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Comenzi">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <ImageView fitHeight="233.0" fitWidth="393.0" layoutX="208.0">
+         <image>
+            <Image url="@../../../../../Images/fundal_vanzator.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="291.0" layoutY="260.0" prefHeight="73.0" prefWidth="276.0" text="Bine ati venit !" textFill="#ff76f4">
          <font>
-            <Font size="31.0" />
+            <Font name="Comic Sans MS Bold Italic" size="36.0" />
          </font>
       </Label>
    </children>
