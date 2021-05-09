@@ -2,11 +2,15 @@ package org.example;
 
 import org.dizitart.no2.objects.Id;
 
+import java.util.ArrayList;
+
 public class User {
     @Id
     private String username;
     private String password;
     private String role;
+    protected ArrayList<Produs> produse;
+    protected ArrayList<Comanda> comenzi;
 
     public User(String username, String password, String role) {
         this.username = username;
