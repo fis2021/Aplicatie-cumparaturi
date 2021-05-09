@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.HomePageVanzatorController">
+   <children>
+      <VBox layoutX="-2.0" prefHeight="404.0" prefWidth="212.0" style="-fx-background-color: #E3B8F5;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Acasa">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToAdaugareProduse" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Adaugare produse">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToEditareProduse" prefHeight="76.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Editare produse">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToStergereProduse" prefHeight="68.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Stergere Produse">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToComenzi" prefHeight="73.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Comenzi">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button onAction="#SwitchToLogin" mnemonicParsing="false" prefHeight="31.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Deconectare">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <ImageView fx:id="FundalVanzator" fitHeight="233.0" fitWidth="393.0" layoutX="208.0">
+         <image>
+            <Image url="@../../../../../Images/fundal_vanzator.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="291.0" layoutY="260.0" prefHeight="73.0" prefWidth="276.0" text="Bine ati venit !" textFill="#ff76f4">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
