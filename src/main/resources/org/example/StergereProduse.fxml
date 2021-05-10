@@ -7,13 +7,47 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.StergereProduseController">
+<AnchorPane prefHeight="706.0" prefWidth="973.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.StergereProduseController">
    <children>
-      <Label layoutX="206.0" layoutY="146.0" text="Stergere Produse ">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Button onAction="#SwitchToHome"  layoutX="268.0" layoutY="234.0" mnemonicParsing="false" text="Acasa" />
+      <VBox layoutX="-2.0" prefHeight="404.0" prefWidth="212.0" style="-fx-background-color: #E3B8F5;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Acasa">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToAdaugareProduse" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Adaugare produse">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToEditareProduse" prefHeight="76.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Editare produse">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="68.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Stergere Produse">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToComenzi" prefHeight="73.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Comenzi">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToLogin" prefHeight="58.0" prefWidth="212.0" style="-fx-background-color: transparent;" text="Deconectare">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Label layoutX="318.0" layoutY="73.0" text="ID produse:" />
+      <Button layoutX="662.0" layoutY="68.0" mnemonicParsing="false" text="Cauta" />
+      <Button layoutX="790.0" layoutY="482.0" mnemonicParsing="false" text="Stergere" />
+      <TextField layoutX="432.0" layoutY="68.0" />
+      <Label layoutX="237.0" layoutY="292.0" text="Produsele dumneavoastra:" />
+      <TextArea layoutX="425.0" layoutY="202.0" prefHeight="200.0" prefWidth="505.0" />
    </children>
 </AnchorPane>
