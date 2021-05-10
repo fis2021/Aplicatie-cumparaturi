@@ -16,10 +16,11 @@ public class Produs {
         this.pret=pret;
         this.cantitate=cantitate;
         this.descriere= descriere;
-        this.id="$"+cod;
+        cod=cod+1;
+        this.id=App.user.getUsername()+cod;
         this.denumire=denumire;
         //this.vanzator=vanzator;
-        cod++;
+        //cod=cod+1;
     }
 
     public double getPret(){ return pret; }
@@ -28,12 +29,18 @@ public class Produs {
     public String getId(){ return this.id;}
     public String getDenumire(){ return this.denumire; }
 
-    public void setPret(int pret){ this.pret=pret; }
+    public void setPret(double pret){ this.pret=pret; }
     public void setCantitate(int cantitate) throws OutOfStockException{
         if(this.cantitate + cantitate <0) throw new OutOfStockException();
     }
     public void setDescriere(String descriere) {
         this.descriere=descriere;
+    }
+    public void setDenumire(String denumire){
+        this.denumire=denumire;
+    }
+    public static void setCod(int cod){
+        Produs.cod=cod;
     }
 
 

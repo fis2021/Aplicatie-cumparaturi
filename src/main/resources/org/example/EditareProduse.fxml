@@ -43,19 +43,20 @@
             </Button>
          </children>
       </VBox>
-      <TextField layoutX="456.0" layoutY="121.0" />
-      <TextField layoutX="456.0" layoutY="177.0" />
-      <TextField layoutX="456.0" layoutY="232.0" />
+      <TextField fx:id="denumire" layoutX="456.0" layoutY="121.0" />
+      <TextField fx:id="pret" layoutX="456.0" layoutY="177.0" />
+      <TextField fx:id="cantitate" layoutX="456.0" layoutY="232.0" />
       <Label layoutX="326.0" layoutY="126.0" text="Denumire :" />
       <Label layoutX="345.0" layoutY="182.0" text="Pret :" />
       <Label layoutX="326.0" layoutY="237.0" text="Cantitate :" />
       <Label layoutX="328.0" layoutY="315.0" text="Descriere :" />
-      <Button layoutX="626.0" layoutY="421.0" mnemonicParsing="false" text="Salveaza" />
-      <Button layoutX="709.0" layoutY="49.0" mnemonicParsing="false" text="Cauta" />
-      <TextField layoutX="456.0" layoutY="49.0" />
+      <Button layoutX="626.0" layoutY="421.0" mnemonicParsing="false" onAction="#salveaza" text="Salveaza" />
+      <Button layoutX="709.0" layoutY="49.0" mnemonicParsing="false" onAction="#cautaProdus" text="Cauta" />
+      <TextField fx:id="idProdus" layoutX="456.0" layoutY="49.0" />
       <Label layoutX="342.0" layoutY="54.0" text="ID produs :" />
-      <TextArea layoutX="354.0" layoutY="482.0" prefHeight="200.0" prefWidth="579.0" />
+      <TextArea fx:id="ListaProduse" layoutX="354.0" layoutY="482.0" prefHeight="200.0" prefWidth="579.0" />
       <Label layoutX="145.0" layoutY="537.0" text="Produsele dumneavoastra" />
-      <TextArea layoutX="454.0" layoutY="294.0" prefHeight="112.0" prefWidth="409.0" />
+      <TextArea fx:id="descriere" layoutX="454.0" layoutY="294.0" prefHeight="112.0" prefWidth="409.0" />
+      <Text fx:id="mesaj" layoutX="578.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>

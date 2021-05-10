@@ -49,7 +49,6 @@ public class AdaugareProduseController {
     private void addProduct(){
         Produs p;
         p=new Produs(Double.parseDouble(pret.getText()),Integer.parseInt(cantitate.getText()),descriere.getText(), denumire.getText());
-
         App.user.addProduse(p);
         UserService.updateUser(App.user);
         denumire.setText("");

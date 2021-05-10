@@ -23,6 +23,24 @@ public class UserService {
         userRepository = database.getRepository(User.class);
     }
 
+    public static int getLastIdOfProduct(User u){
+        String s;
+        String[] p;
+        Produs prod;
+        int x=-1;
+        for(User user:userRepository.find()){
+            if(Objects.equals(user.getUsername(),u.getUsername())){
+                 prod=user.produse.get(user.produse.size()-1);
+                 s=prod.getId();
+                 p=s.split("\\s");
+                 System.out.println("UITE BA AICEA "+p[0]+p[1]);
+                 x= Integer.parseInt(p[1]);
+
+            }
+        }
+        return x;
+    }
+
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
         userRepository.insert(new User(username, encodePassword(username, password), role));

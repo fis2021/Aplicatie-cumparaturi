@@ -70,6 +70,9 @@ public class User {
     public void addProduse(Produs p){
         produse.add(p);
     }
+
+    public ArrayList<Produs>getProduse(){ return this.produse; }
+
     public ArrayList<Comanda> getComenzi(){
         return this.comenzi;
     }
