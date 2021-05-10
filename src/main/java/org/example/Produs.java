@@ -17,7 +17,7 @@ public class Produs {
         this.cantitate=cantitate;
         this.descriere= descriere;
         cod=cod+1;
-        this.id=App.user.getUsername()+cod;
+        this.id=App.user.getUsername()+"@"+cod;
         this.denumire=denumire;
         //this.vanzator=vanzator;
         //cod=cod+1;

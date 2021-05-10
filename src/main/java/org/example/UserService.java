@@ -32,7 +32,7 @@ public class UserService {
             if(Objects.equals(user.getUsername(),u.getUsername())){
                  prod=user.produse.get(user.produse.size()-1);
                  s=prod.getId();
-                 p=s.split("\\s");
+                 p=s.split("@");
                  System.out.println("UITE BA AICEA "+p[0]+p[1]);
                  x= Integer.parseInt(p[1]);
 
