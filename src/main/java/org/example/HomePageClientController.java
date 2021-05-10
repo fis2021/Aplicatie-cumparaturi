@@ -36,6 +36,7 @@ public class HomePageClientController {
     @FXML
     private void SwitchToLogin() throws IOException{
         App.setRoot("primary.fxml");
+        App.setUser(null);
     }
 
 }

@@ -1,19 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.AdaugareProduseController">
+<AnchorPane prefHeight="579.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.AdaugareProduseController">
    <children>
-      <Label layoutX="202.0" layoutY="132.0" text="Adaugare Produse ">
+      <VBox layoutX="-2.0" prefHeight="404.0" prefWidth="212.0" style="-fx-background-color: #E3B8F5;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Acasa">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Adaugare produse">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToEditareProduse" prefHeight="76.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Editare produse">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToStergereProduse" prefHeight="68.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Stergere Produse">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToComenzi" prefHeight="73.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Comenzi">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToLogin" prefHeight="31.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Deconectare">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <TextField fx:id="denumire" layoutX="440.0" layoutY="80.0" />
+      <TextField fx:id="pret" layoutX="440.0" layoutY="132.0" />
+      <TextField fx:id="cantitate" layoutX="440.0" layoutY="187.0" />
+      <TextArea fx:id="descriere" layoutX="434.0" layoutY="240.0" prefHeight="113.0" prefWidth="200.0" />
+      <Button layoutX="495.0" layoutY="389.0" mnemonicParsing="false" onAction="#addProduct" style="-fx-background-color: transparent;" text="Adauga">
          <font>
-            <Font size="24.0" />
+            <Font name="Comic Sans MS" size="18.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="349.0" layoutY="85.0" text="Denumire:" />
+      <Label layoutX="460.0" layoutY="14.0" text="Adaugati Produse">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
       </Label>
-      <Button onAction="#SwitchToHome" layoutX="252.0" layoutY="215.0" mnemonicParsing="false" text="Acasa" />
+      <Label layoutX="367.0" layoutY="137.0" text="Pret:" />
+      <Label layoutX="308.0" layoutY="192.0" text="Cantiate (buc/Kg):" />
+      <Label layoutX="349.0" layoutY="297.0" text="Descriere:" />
+      <Text fx:id="mesaj" layoutX="407.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="253.6708984375" />
    </children>
+
 </AnchorPane>

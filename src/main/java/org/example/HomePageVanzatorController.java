@@ -20,16 +20,6 @@ public class HomePageVanzatorController {
     }
 
     @FXML
-    private void SwitchToIstoric() throws IOException {
-        App.setRoot("AdaugareProduse.fxml");
-    }
-
-    @FXML
-    private void SwitchToCos() throws IOException{
-        App.setRoot("EditareProduse.fxml");
-    }
-
-    @FXML
     private void SwitchToEditareProduse() throws IOException {
         App.setRoot("EditareProduse.fxml");
     }
@@ -52,5 +42,6 @@ public class HomePageVanzatorController {
     @FXML
     private void SwitchToLogin() throws IOException{
         App.setRoot("primary.fxml");
+        App.setUser(null);
     }
 }
