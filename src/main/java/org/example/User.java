@@ -16,6 +16,8 @@ public class User {
         this.username = username;
         this.password = password;
         this.role = role;
+        produse= new ArrayList<Produs>();
+        comenzi= new ArrayList<Comanda>();
     }
 
     public User() {
@@ -63,5 +65,17 @@ public class User {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
+    }
+
+    public void addProduse(Produs p){
+        produse.add(p);
+    }
+    public ArrayList<Comanda> getComenzi(){
+        return this.comenzi;
+    }
+
+    public void PlasareComanda(ArrayList<Produs> produse,Vanzator vanzator,String NrTelefon,String Adresa,String modPlata,String dataInregistare,double total){
+        Comanda c= new Comanda(produse,Adresa,modPlata," ",total,App.user,vanzator,NrTelefon,dataInregistare);
+        comenzi.add(c);
     }
 }

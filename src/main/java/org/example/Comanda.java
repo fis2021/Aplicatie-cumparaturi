@@ -10,12 +10,12 @@ public class Comanda {
     private String mesaj;
     private double totalPret;
     private String dataInregistrare;
-    private Client client;
+    private User client;
     private String NrTelefon;
-    private Vanzator vanzator;
+    private User vanzator;
     private String Id;
 
-    public Comanda(ArrayList<Produs> produse, String adresaLivrare, String modPlata,String mesaj,double total,Client client,Vanzator vanzator,String nrTelefon,String dataInregistrare){
+    public Comanda(ArrayList<Produs> produse, String adresaLivrare, String modPlata,String mesaj,double total,User client,User vanzator,String nrTelefon,String dataInregistrare){
         this.produse=produse;
         this.adresaLivrare=adresaLivrare;
         this.modPlata=modPlata;
@@ -42,10 +42,10 @@ public class Comanda {
     public String getDataInregistrare() {
         return this.dataInregistrare;
     }
-    public Client getClient(){
+    public User getClient(){
         return this.client;
     }
-    public Vanzator getVanzator(){ return this.vanzator; }
+    public User getVanzator(){ return this.vanzator; }
     public String getNrTelefon(){
         return this.NrTelefon;
     }
