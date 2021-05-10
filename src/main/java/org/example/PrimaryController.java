@@ -2,6 +2,7 @@ package org.example;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 
 import javafx.fxml.FXML;
@@ -30,12 +31,19 @@ public class PrimaryController {
     }
     @FXML
     private void handleLoginAction() throws IOException{
-        String rol;
+        User user;
+
         try {
-           rol= UserService.verifyCredentials(username.getText(), password.getText());
+           user = UserService.verifyCredentials(username.getText(), password.getText());
            // message.setText("Account created successfully!");
-           if(rol.equals(new String("Client"))) App.setRoot("HomePageClient.fxml");
-           else App.setRoot("HomePageVanzator.fxml");
+           if(user.getRole().equals(new String("Client"))) {
+               App.setRoot("HomePageClient.fxml");
+               App.setUser(user);
+           }
+           else {
+               App.setRoot("HomePageVanzator.fxml");
+               App.setUser(user);
+           }
         } catch (InvalidCredentialsException e) {
             message.setText(e.getMessage());
         }

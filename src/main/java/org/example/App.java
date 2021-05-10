@@ -14,7 +14,7 @@ import java.nio.file.Path;
  * JavaFX App
  */
 public class App extends Application {
-
+    protected static User user;
     private static Scene scene;
 
     @Override
@@ -25,6 +25,11 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
+    public static void setUser(User user){
+        App.user=user;
+    }
+
 
    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));

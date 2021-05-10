@@ -5,12 +5,7 @@ import java.util.Objects;
 
 public class Vanzator extends User {
 
-    public void addProduse(Produs p){
-        produse.add(p);
-    }
-    public ArrayList<Comanda> getComenzi(){
-        return this.comenzi;
-    }
+    public ArrayList<Produs> getProduse(){ return this.produse; }
 
     public void editProdus(String idProdus, int pret,int cantitate,String descriere){
         try {

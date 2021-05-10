@@ -4,6 +4,7 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
 
+import javax.validation.constraints.Null;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,7 +20,6 @@ public class UserService {
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("User.db").toFile())
                 .openOrCreate("test", "test");
-
         userRepository = database.getRepository(User.class);
     }
 
@@ -28,7 +28,11 @@ public class UserService {
         userRepository.insert(new User(username, encodePassword(username, password), role));
     }
 
-    public static String verifyCredentials(String username, String password) throws InvalidCredentialsException{
+    public static void updateUser(User v){
+        userRepository.update(v);
+    }
+
+    public static User verifyCredentials(String username, String password) throws InvalidCredentialsException{
         password=encodePassword(username,password);
         try{
             checkUserDoesNotAlreadyExist(username);
@@ -40,12 +44,11 @@ public class UserService {
                 if (Objects.equals(username, user.getUsername())) {
                     if (Objects.equals(password, user.getPassword()) == false)
                         throw new InvalidCredentialsException();
-                    else return user.getRole();
+                    else return user;
                 }
             }
         }
-        return "Eroare";
-
+        return new User();
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
