@@ -21,6 +21,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         initDirectory();
         UserService.initDatabase();
+        ComandaService.initDatabase();
         scene = new Scene(loadFXML("primary.fxml"), 490, 420);
         stage.setScene(scene);
         stage.show();

@@ -32,6 +32,7 @@ public class StergereProduseController {
             s=s+prod.getId()+"  "+prod.getDenumire()+"  "+prod.getPret()+"  "+prod.getCantitate()+"  "+prod.getDescriere()+"\n";
         }
         ListaProduse.setText(s);
+        idProdus.setText(App.user.getUsername()+"@");
     }
 
     @FXML

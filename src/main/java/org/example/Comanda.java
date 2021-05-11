@@ -3,7 +3,7 @@ package org.example;
 import java.util.ArrayList;
 
 public class Comanda {
-    private static int contor=0;
+    private static int contor;
     private ArrayList<Produs> produse;
     private String adresaLivrare;
     private String modPlata;
@@ -14,6 +14,7 @@ public class Comanda {
     private String NrTelefon;
     private User vanzator;
     private String Id;
+    private Boolean acceptata;
 
     public Comanda(ArrayList<Produs> produse, String adresaLivrare, String modPlata,String mesaj,double total,User client,User vanzator,String nrTelefon,String dataInregistrare){
         this.produse=produse;
@@ -25,9 +26,10 @@ public class Comanda {
         this.vanzator=vanzator;
         this.NrTelefon=nrTelefon;
         this.dataInregistrare=dataInregistrare;
+        contor=ComandaService.lastComanda(client)+1;
 
         this.Id="#"+contor;
-        contor=contor+1;
+        //contor=contor+1;
     }
 
     public String getAdresaLivrare(){
@@ -52,9 +54,12 @@ public class Comanda {
     public String getId(){
         return this.Id;
     }
+    public boolean getAcceptare(){ return this.acceptata;}
 
     public void setMesaj(String mesaj){
         this.mesaj=mesaj;
     }
+    public void setAcceptare(boolean x){ this.acceptata=x; }
+
 
 }
