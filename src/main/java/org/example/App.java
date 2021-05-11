@@ -9,12 +9,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
     protected static User user;
+    protected static ArrayList<Produs> cosCumparaturi;
     private static Scene scene;
 
     @Override
@@ -48,6 +50,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        cosCumparaturi= new ArrayList<Produs>();
         launch();
     }
 
