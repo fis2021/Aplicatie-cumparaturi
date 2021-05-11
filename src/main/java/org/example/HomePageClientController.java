@@ -19,11 +19,6 @@ public class HomePageClientController {
     }
 
     @FXML
-    private void SwitchToIstoric() throws IOException {
-        App.setRoot("IstoricComenzi.fxml");
-    }
-
-    @FXML
     private void SwitchToCos() throws IOException {
         App.setRoot("CosCumparaturi.fxml");
     }
