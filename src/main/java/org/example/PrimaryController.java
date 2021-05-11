@@ -43,6 +43,7 @@ public class PrimaryController {
            else {
                App.setRoot("HomePageVanzator.fxml");
                App.setUser(user);
+               Produs.setCod(UserService.getLastIdOfProduct(user));
            }
         } catch (InvalidCredentialsException e) {
             message.setText(e.getMessage());
