@@ -34,7 +34,7 @@ public class VizProduseController {
         for(User user: vanzatori){
             s=s+" Produsele oferite de :"+user.getUsername()+"\n";
             for(Produs prod:user.produse){
-                s=s+prod.getId()+"   "+prod.getDenumire()+"   "+prod.getCantitate()+"  "+prod.getPret()+" lei    " + "Descriere\n";
+                s=s+prod.getId()+"   "+prod.getDenumire()+"   "+prod.getCantitate()+"  "+prod.getPret()+" lei    " + prod.getDescriere()+"\n";
             }
             s=s+"\n";
         }
@@ -66,16 +66,19 @@ public class VizProduseController {
 
     public void adaugaInCos(ActionEvent actionEvent) {
         int c;
+        Double x;
         if(p!=null) {
             c = Integer.parseInt(cantitate.getText());
             if (c <= p.getCantitate()) {
-                if (c != 0) {
+                if (c > 0) {
+                    x=c*p.getPret();
                     Produs q = new Produs(p.getPret(), c, p.getDescriere(), p.getDenumire());
                     q.setId(p.getId());
                     App.cosCumparaturi.add(q);
                     mesaj.setText("Produs adaugat cu succes!");
+                    total.setText(x+"");
                 }
-                else mesaj.setText("Adaugati o cantitate!");
+                else mesaj.setText("Adaugati o cantitate corecta!");
             }
             else mesaj.setText("Cantitate indisponibila!");
         }
