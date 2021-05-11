@@ -56,6 +56,8 @@ public class StergereProduseController {
     @FXML
     private void SwitchToLogin() throws IOException{
         App.setRoot("primary.fxml");
+        UserService.updateUser(App.user);
+        App.setUser(null);
     }
 
     public void stergereProdus() {

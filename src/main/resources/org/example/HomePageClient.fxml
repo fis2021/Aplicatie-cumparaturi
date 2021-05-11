@@ -41,7 +41,7 @@
       </VBox>
       <ImageView fx:id="FundalClient" fitHeight="210.0" fitWidth="415.0" layoutX="182.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../fundal_client.jpg" />
+            <Image url="@../../../../../Images/fundal_client.jpg" />
          </image>
       </ImageView>
       <Label layoutX="216.0" layoutY="253.0" prefHeight="81.0" prefWidth="381.0" text="Bine ati venit la cumparaturi !" textFill="#03adad">
