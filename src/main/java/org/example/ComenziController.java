@@ -89,6 +89,7 @@ public class ComenziController {
                 a="Acceptata";
             else a="Respinsa";
             c.setAcceptare(a);
+            System.out.println(c.getId()+" "+c.getAdresaLivrare()+""+c.getAcceptare());
             ComandaService.updateComanda(c);
             mesaj1.setText("Comanda slavata cu succes!");
         }

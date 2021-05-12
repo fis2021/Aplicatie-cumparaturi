@@ -35,7 +35,7 @@ public class CosCumparaturiController {
         double x=0;
         for(Produs p:cos){
             s1=p.getId().split("@");
-            x=x+p.getPret();
+            x=x+p.getPret()*p.getCantitate();
             s=s+p.getId()+"   "+p.getDenumire()+"   "+p.getPret()+"   "+p.getCantitate()+"  "+s1[0]+"   "+p.getDescriere()+"\n";
         }
         ListaProduse.setText(s);

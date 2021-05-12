@@ -18,8 +18,8 @@ import java.util.ArrayList;
  * JavaFX App
  */
 public class App extends Application {
-    protected static User user;
-    protected static ArrayList<Produs> cosCumparaturi;
+    private static User user;
+    private static ArrayList<Produs> cosCumparaturi;
     private static Scene scene;
     @Override
     public void start(Stage stage) throws IOException {

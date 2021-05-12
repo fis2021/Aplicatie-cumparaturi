@@ -9,8 +9,8 @@ public class User {
     private String username;
     private String password;
     private String role;
-    protected ArrayList<Produs> produse;
-    protected ArrayList<Comanda> comenzi;
+    private ArrayList<Produs> produse;
+    private ArrayList<Comanda> comenzi;
 
     public User(String username, String password, String role) {
         this.username = username;
@@ -77,8 +77,8 @@ public class User {
         return this.comenzi;
     }
 
-    public void PlasareComanda(ArrayList<Produs> produse,Vanzator vanzator,String NrTelefon,String Adresa,String modPlata,String dataInregistare,double total){
-        Comanda c= new Comanda(produse,Adresa,modPlata," ",total,App.user,vanzator,NrTelefon,dataInregistare);
+    public void PlasareComanda(ArrayList<Produs> produse,User vanzator,String NrTelefon,String Adresa,String modPlata,String dataInregistare,double total){
+        Comanda c= new Comanda(produse,Adresa,modPlata," ",total,App.getUser(),vanzator,NrTelefon,dataInregistare);
         comenzi.add(c);
     }
 }

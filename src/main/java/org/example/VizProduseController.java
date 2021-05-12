@@ -33,7 +33,7 @@ public class VizProduseController {
         String s="Id produs    Denumire    Cantitate Disponibila   Pret   Descriere \n";
         for(User user: vanzatori){
             s=s+" Produsele oferite de :"+user.getUsername()+"\n";
-            for(Produs prod:user.produse){
+            for(Produs prod:user.getProduse()){
                 s=s+prod.getId()+"   "+prod.getDenumire()+"   "+prod.getCantitate()+"  "+prod.getPret()+" lei    " + prod.getDescriere()+"\n";
             }
             s=s+"\n";
@@ -61,7 +61,7 @@ public class VizProduseController {
     private void SwitchToLogin() throws IOException{
         App.setRoot("primary.fxml");
         App.setUser(null);
-        App.cosCumparaturi.clear();
+        App.getCos().clear();
     }
 
     public void adaugaInCos(ActionEvent actionEvent) {
@@ -74,7 +74,7 @@ public class VizProduseController {
                     x=c*p.getPret();
                     Produs q = new Produs(p.getPret(), c, p.getDescriere(), p.getDenumire());
                     q.setId(p.getId());
-                    App.cosCumparaturi.add(q);
+                    App.getCos().add(q);
                     mesaj.setText("Produs adaugat cu succes!");
                     total.setText(x+"");
                 }
@@ -91,7 +91,7 @@ public class VizProduseController {
     public void cautaProdus(ActionEvent actionEvent) {
         p=null;
         for(User user:vanzatori){
-            for(Produs prod:user.produse)
+            for(Produs prod:user.getProduse())
                 if(Objects.equals(idProdus.getText(),prod.getId())) {
                     p = prod;
                     mesajCauta.setText("Produs gasit!");

@@ -1,9 +1,14 @@
 package org.example;
 
 
+import org.dizitart.no2.objects.Id;
+
 import java.util.ArrayList;
 
 public class Comanda {
+    @Id
+    private String codUnic;
+
     private static int contor;
     private ArrayList<Produs> produse;
     private String adresaLivrare;
@@ -14,11 +19,9 @@ public class Comanda {
     private User client;
     private User vanzator;
     private String NrTelefon;
-    private String Id;
     private String acceptata;
 
     public Comanda(){
-
     }
 
     public Comanda(ArrayList<Produs> produse, String adresaLivrare, String modPlata, String mesaj, double total, User client, User vanzator, String nrTelefon, String dataInregistrare){
@@ -33,7 +36,7 @@ public class Comanda {
         this.dataInregistrare=dataInregistrare;
         contor= ComandaService.lastComanda(client)+1;
 
-        this.Id="#"+contor;
+        this.codUnic=client.getUsername()+"#"+contor;
         //contor=contor+1;
     }
 
@@ -59,7 +62,7 @@ public class Comanda {
         return this.NrTelefon;
     }
     public String getId(){
-        return this.Id;
+        return this.codUnic;
     }
     public String getAcceptare(){ return this.acceptata;}
 
