@@ -1,22 +1,25 @@
 package org.example;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import org.example.Produs;
+import org.example.User;
+import org.example.ComandaService;
+import org.example.FileSystemService;
+import org.example.UserService;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
+import java.util.ArrayList;
 /**
  * JavaFX App
  */
 public class App extends Application {
     protected static User user;
+    protected static ArrayList<Produs> cosCumparaturi;
     private static Scene scene;
-
     @Override
     public void start(Stage stage) throws IOException {
         initDirectory();
@@ -27,12 +30,23 @@ public class App extends Application {
         stage.show();
     }
 
+    public static User getUser(){
+        return user;
+    }
+
+    public static ArrayList<Produs> getCos(){
+        return cosCumparaturi;
+    }
+
     public static void setUser(User user){
         App.user=user;
     }
+    public static void addCos(Produs p){
+        cosCumparaturi.add(p);
+    }
 
 
-   public static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
@@ -48,6 +62,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        cosCumparaturi= new ArrayList<Produs>();
         launch();
     }
 
