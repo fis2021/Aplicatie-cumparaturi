@@ -1,6 +1,5 @@
 package org.example;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -8,27 +7,44 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 
+
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ComenziController {
 
     @FXML
-        private TextField idComanda;
+    private TextField idComanda;
     @FXML
-        private TextArea mesaj;
+    private TextArea mesaj;
     @FXML
-        private TextArea ListaComenzi;
+    private TextArea ListaComenzi;
     @FXML
-        private Text mesaj1;
+    private Text mesaj1;
     @FXML
-        private Text mesaj2;
+    private Text mesaj2;
     @FXML
-        private RadioButton accept;
+    private RadioButton accept;
     @FXML
-        private RadioButton decline;
+    private RadioButton decline;
     @FXML
-        private ToggleGroup Raspuns;
+    private ToggleGroup Raspuns;
     private static Comanda c;
+
+    @FXML
+    public void initialize(){
+        ArrayList<Comanda> comenzi= ComandaService.getComenziVanzator(App.getUser());
+        String s="Id comanda    Nume client    Nr.telefon    Adresa   Mod plata     Data    Acceptata/Respinsa \n ";
+        for(Comanda c:comenzi){
+            s=s+" "+c.getId()+"   "+c.getClient().getUsername()+"   "+c.getNrTelefon()+"   "+c.getAdresaLivrare()+"   "+c.getModPlata();
+            s=s+"   "+c.getDataInregistrare()+"   "+c.getAcceptare()+"\n";
+        }
+        ListaComenzi.setText(s);
+
+
+
+
+    }
 
     @FXML
     public void SwitchToHome() throws IOException {
@@ -52,13 +68,13 @@ public class ComenziController {
     @FXML
     private void SwitchToLogin() throws IOException{
         App.setRoot("primary.fxml");
-        UserService.updateUser(App.user);
+        UserService.updateUser(App.getUser());
         App.setUser(null);
     }
 
     @FXML
     public void cautaComanda() {
-        c=ComandaService.getComanda(idComanda.getText());
+        c= ComandaService.getComanda(idComanda.getText());
         if(c==null)
             mesaj2.setText("Comanda inexistenta!");
         else mesaj2.setText("Comanda gasita!");
@@ -66,7 +82,7 @@ public class ComenziController {
 
     @FXML
     public void salveazaComanda() {
-        String a;
+        String  a;
         if(c!= null){
             c.setMesaj(mesaj.getText());
             if(accept.isSelected())
