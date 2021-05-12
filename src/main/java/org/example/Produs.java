@@ -35,7 +35,9 @@ public class Produs {
     public String getDenumire(){ return this.denumire; }
 
     public void setPret(double pret){ this.pret=pret; }
+
     public void setCantitate(double cantitate) throws OutOfStockException {
+
         if(this.cantitate + cantitate <0) throw new OutOfStockException();
         else this.cantitate=cantitate;
     }

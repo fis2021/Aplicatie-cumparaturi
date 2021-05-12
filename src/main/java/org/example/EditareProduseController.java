@@ -60,6 +60,8 @@ public class EditareProduseController {
         @FXML
         private void SwitchToLogin() throws IOException{
             App.setRoot("primary.fxml");
+            UserService.updateUser(App.user);
+            App.setUser(null);
 
         }
 
@@ -71,7 +73,7 @@ public class EditareProduseController {
                 if (idProdus.getText().equals(prod.getId())) {
                     prod.setDescriere(descriere.getText());
                     prod.setPret(Double.parseDouble(pret.getText()));
-                    prod.setCantitate(Integer.parseInt(cantitate.getText()));
+                    prod.setCantitate(Double.parseDouble(cantitate.getText()));
                     prod.setDenumire(denumire.getText());
                     UserService.updateUser(App.user);
                     mesaj.setText("Editare cu succes!");

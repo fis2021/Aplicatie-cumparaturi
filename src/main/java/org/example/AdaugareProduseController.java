@@ -43,14 +43,17 @@ public class AdaugareProduseController {
     @FXML
     private void SwitchToLogin() throws IOException{
         App.setRoot("primary.fxml");
+        UserService.updateUser(App.user);
+        App.setUser(null);
     }
 
     @FXML
     private void addProduct(){
         Produs p;
-        p=new Produs(Double.parseDouble(pret.getText()),Integer.parseInt(cantitate.getText()),descriere.getText(), denumire.getText());
+        p=new Produs(Double.parseDouble(pret.getText()),Double.parseDouble(cantitate.getText()),descriere.getText(), denumire.getText());
         App.user.addProduse(p);
         UserService.updateUser(App.user);
+        System.out.println(p.toString());
         denumire.setText("");
         pret.setText("");
         cantitate.setText("");

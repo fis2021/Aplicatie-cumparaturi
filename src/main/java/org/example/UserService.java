@@ -8,6 +8,7 @@ import javax.validation.constraints.Null;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 import static org.example.FileSystemService.getPathToFile;
@@ -23,6 +24,16 @@ public class UserService {
         userRepository = database.getRepository(User.class);
     }
 
+    public static ArrayList<User> getVanzatori(){
+        ArrayList<User> vanzatori=new ArrayList<User>();
+        for(User user:userRepository.find()){
+            if(Objects.equals(user.getRole(),"Vanzator"))
+                if(user.produse!=null)
+                vanzatori.add(user);
+        }
+        return vanzatori;
+    }
+
     public static int getLastIdOfProduct(User u){
         String s;
         String[] p;
@@ -30,11 +41,13 @@ public class UserService {
         int x=-1;
         for(User user:userRepository.find()){
             if(Objects.equals(user.getUsername(),u.getUsername())){
-                 prod=user.produse.get(user.produse.size()-1);
-                 s=prod.getId();
-                 p=s.split("@");
-                 System.out.println("UITE BA AICEA "+p[0]+p[1]);
-                 x= Integer.parseInt(p[1]);
+                if(user.produse.isEmpty()==false) {
+                    prod = user.produse.get(user.produse.size() - 1);
+                    s = prod.getId();
+                    p = s.split("@");
+                    System.out.println("UITE BA AICEA " + p[0] + p[1]);
+                    x = Integer.parseInt(p[1]);
+                }
 
             }
         }
