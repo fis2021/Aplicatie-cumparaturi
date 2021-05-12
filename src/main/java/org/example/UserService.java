@@ -4,7 +4,6 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
 
-import javax.validation.constraints.Null;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -12,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import static org.example.FileSystemService.getPathToFile;
+
 
 public class UserService {
 
@@ -28,8 +28,8 @@ public class UserService {
         ArrayList<User> vanzatori=new ArrayList<User>();
         for(User user:userRepository.find()){
             if(Objects.equals(user.getRole(),"Vanzator"))
-                if(user.produse!=null)
-                vanzatori.add(user);
+                if(user.getProduse()!=null)
+                    vanzatori.add(user);
         }
         return vanzatori;
     }
@@ -41,8 +41,8 @@ public class UserService {
         int x=-1;
         for(User user:userRepository.find()){
             if(Objects.equals(user.getUsername(),u.getUsername())){
-                if(user.produse.isEmpty()==false) {
-                    prod = user.produse.get(user.produse.size() - 1);
+                if(user.getProduse().isEmpty()==false) {
+                    prod = user.getProduse().get(user.getProduse().size() - 1);
                     s = prod.getId();
                     p = s.split("@");
                     System.out.println("UITE BA AICEA " + p[0] + p[1]);
@@ -58,17 +58,24 @@ public class UserService {
         checkUserDoesNotAlreadyExist(username);
         userRepository.insert(new User(username, encodePassword(username, password), role));
     }
-
+    public static User getUser(String username){
+        User x=null;
+        for(User u:userRepository.find()){
+            if(Objects.equals(u.getUsername(),username))
+                x=u;
+        }
+        return x;
+    }
     public static void updateUser(User v){
         userRepository.update(v);
     }
 
-    public static User verifyCredentials(String username, String password) throws InvalidCredentialsException{
+    public static User verifyCredentials(String username, String password) throws InvalidCredentialsException {
         password=encodePassword(username,password);
         try{
             checkUserDoesNotAlreadyExist(username);
             throw new InvalidCredentialsException();
-           // return "Eroare";
+            // return "Eroare";
         }
         catch (UsernameAlreadyExistsException e) {
             for (User user : userRepository.find()) {

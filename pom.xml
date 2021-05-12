@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <main.class.name>org.example.sre.Main</main.class.name>
+        <main.class.name>org.example.App</main.class.name>
         <final.jar.name>AplicatieCumparaturi</final.jar.name>
     </properties>
 

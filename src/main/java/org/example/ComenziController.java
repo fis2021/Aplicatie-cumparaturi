@@ -66,12 +66,12 @@ public class ComenziController {
 
     @FXML
     public void salveazaComanda() {
-        boolean a;
+        String a;
         if(c!= null){
             c.setMesaj(mesaj.getText());
             if(accept.isSelected())
-                a=true;
-            else a=false;
+                a="Acceptata";
+            else a="Respinsa";
             c.setAcceptare(a);
             ComandaService.updateComanda(c);
             mesaj1.setText("Comanda slavata cu succes!");
