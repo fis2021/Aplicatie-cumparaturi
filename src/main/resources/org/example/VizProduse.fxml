@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.VizProduseController">
+<AnchorPane prefHeight="682.0" prefWidth="1037.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.VizProduseController">
    <children>
-      <Label layoutX="191.0" layoutY="160.0" text="vizualizare produse" />
-      <Button onAction="#SwitchToHome"  layoutX="235.0" layoutY="233.0" mnemonicParsing="false" text="Acasa" />
+      <VBox layoutY="2.0" prefHeight="682.0" prefWidth="206.0" style="-fx-background-color: #1AECDB;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="183.0" style="-fx-background-color: #1AECDB;" text="Acasa">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToIstoric" prefHeight="80.0" prefWidth="182.0" style="-fx-background-color: #1AECDB;" text="Istoric Comenzi">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToCos" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: #1AECDB;" text="Cos de cumparaturi">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;" text="Vizualizare produse">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToLogin" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: trasparent;" text="Deconectare">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Label layoutX="538.0" layoutY="22.0" text="Produse disponibile">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="346.0" layoutY="321.0" text="Id produs:" />
+      <Label layoutX="353.0" layoutY="373.0" text="Cantitate" />
+      <TextField fx:id="idProdus" layoutX="445.0" layoutY="316.0" />
+      <TextField fx:id="cantitate" layoutX="445.0" layoutY="368.0" />
+      <TextArea fx:id="ListaProduse" layoutX="327.0" layoutY="73.0" prefHeight="200.0" prefWidth="642.0" />
+      <Text fx:id="mesaj" layoutX="524.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button layoutX="489.0" layoutY="424.0" mnemonicParsing="false" onAction="#adaugaInCos" text="Adauga in cos" />
+      <Label layoutX="769.0" layoutY="300.0" text="Total:" />
+      <Text fx:id="total" layoutX="774.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 lei" />
+      <Text fx:id="mesajCauta" layoutX="497.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button onAction="#cautaProdus" layoutX="647.0" layoutY="316.0" mnemonicParsing="false" text="Cauta" />
    </children>
 </AnchorPane>
