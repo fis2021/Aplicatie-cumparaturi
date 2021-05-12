@@ -17,12 +17,10 @@ public class HomePageClientController {
         Image fundalImage = new Image(fundalFile.toURI().toString());
         FundalClient.setImage(fundalImage);
     }
-
     @FXML
     private void SwitchToIstoric() throws IOException {
         App.setRoot("IstoricComenzi.fxml");
     }
-
     @FXML
     private void SwitchToCos() throws IOException {
         App.setRoot("CosCumparaturi.fxml");

@@ -1,19 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.CosCumparaturiController">
+<AnchorPane prefHeight="671.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.CosCumparaturiController">
    <children>
-      <Label layoutX="171.0" layoutY="110.0" prefHeight="117.0" prefWidth="261.0" text="Cos de cumparaturi">
+      <VBox layoutY="2.0" prefHeight="671.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="183.0" style="-fx-background-color: #1AECDB;" text="Acasa">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToIstoric" prefHeight="80.0" prefWidth="182.0" style="-fx-background-color: #1AECDB;" text="Istoric Comenzi">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: #1AECDB;" text="Cos de cumparaturi">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToProduse" prefHeight="85.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;" text="Vizualizare produse">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToLogin" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: trasparent;" text="Deconectare">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <TextArea fx:id="ListaProduse" layoutX="359.0" layoutY="281.0" prefHeight="157.0" prefWidth="418.0" />
+      <Button layoutX="458.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToPlasare" text="Plaseaza comanda" />
+      <Text fx:id="MesajPlasare" layoutX="555.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Label layoutX="446.0" layoutY="37.0" text="Cosul dumneavoastra">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Button onAction="#SwitchToHome"  layoutX="235.0" layoutY="200.0" mnemonicParsing="false" text="Acasa" />
+      <TextField fx:id="idProdus" layoutX="446.0" layoutY="104.0" />
+      <Text layoutX="233.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare produse cos:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label layoutX="342.0" layoutY="104.0" text="Id produs:" />
+      <Button layoutX="661.0" layoutY="99.0" mnemonicParsing="false" onAction="#CautaProdus" text="Cauta produs" />
+      <Label layoutX="328.0" layoutY="155.0" text="Noua cantitae:" />
+      <TextField fx:id="cantitateNoua" layoutX="446.0" layoutY="150.0" />
+      <Button layoutX="676.0" layoutY="150.0" mnemonicParsing="false" onAction="#modificaCantitate" text="Modifica" />
+      <Button layoutX="470.0" layoutY="201.0" mnemonicParsing="false" onAction="#eliminareProdus" text="Eliminati produsul" />
+      <Label layoutX="221.0" layoutY="337.0" text="Produsele din cos:" />
+      <Text fx:id="mesajCautare" layoutX="529.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+      <Text fx:id="mesajEliminare" layoutX="453.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+      <Label layoutX="453.0" layoutY="448.0" text="Total:" />
+      <Label fx:id="total" layoutX="551.0" layoutY="448.0" text="lei" />
    </children>
 </AnchorPane>

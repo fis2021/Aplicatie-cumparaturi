@@ -1,5 +1,6 @@
 package org.example;
-
+import org.example.App;
+import org.example.OutOfStockException;
 public class Produs {
     private static int cod=0;
     private double pret;
@@ -7,7 +8,6 @@ public class Produs {
     private String denumire;
     private String descriere;
     private String id;
-
     public Produs(){
 
     }
@@ -17,7 +17,7 @@ public class Produs {
         this.cantitate=cantitate;
         this.descriere= descriere;
         cod=cod+1;
-        this.id=App.user.getUsername()+"@"+cod;
+        this.id= App.getUser().getUsername()+"@"+cod;
         this.denumire=denumire;
         //this.vanzator=vanzator;
         //cod=cod+1;
@@ -35,10 +35,13 @@ public class Produs {
     public String getDenumire(){ return this.denumire; }
 
     public void setPret(double pret){ this.pret=pret; }
-    public void setCantitate(double cantitate) throws OutOfStockException{
+
+    public void setCantitate(double cantitate) throws OutOfStockException {
+
         if(this.cantitate + cantitate <0) throw new OutOfStockException();
         else this.cantitate=cantitate;
     }
+    public void addCantitate(double d){ this.cantitate=this.cantitate+d;}
     public void setDescriere(String descriere) {
         this.descriere=descriere;
     }
