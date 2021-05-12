@@ -1,5 +1,6 @@
 package org.example;
 
+
 import java.util.ArrayList;
 
 public class Comanda {
@@ -11,12 +12,16 @@ public class Comanda {
     private double totalPret;
     private String dataInregistrare;
     private User client;
-    private String NrTelefon;
     private User vanzator;
+    private String NrTelefon;
     private String Id;
-    private Boolean acceptata;
+    private String acceptata;
 
-    public Comanda(ArrayList<Produs> produse, String adresaLivrare, String modPlata,String mesaj,double total,User client,User vanzator,String nrTelefon,String dataInregistrare){
+    public Comanda(){
+
+    }
+
+    public Comanda(ArrayList<Produs> produse, String adresaLivrare, String modPlata, String mesaj, double total, User client, User vanzator, String nrTelefon, String dataInregistrare){
         this.produse=produse;
         this.adresaLivrare=adresaLivrare;
         this.modPlata=modPlata;
@@ -26,7 +31,7 @@ public class Comanda {
         this.vanzator=vanzator;
         this.NrTelefon=nrTelefon;
         this.dataInregistrare=dataInregistrare;
-        contor=ComandaService.lastComanda(client)+1;
+        contor= ComandaService.lastComanda(client)+1;
 
         this.Id="#"+contor;
         //contor=contor+1;
@@ -47,19 +52,21 @@ public class Comanda {
     public User getClient(){
         return this.client;
     }
-    public User getVanzator(){ return this.vanzator; }
+    public User getVanzator(){
+        return this.vanzator;
+    }
     public String getNrTelefon(){
         return this.NrTelefon;
     }
     public String getId(){
         return this.Id;
     }
-    public boolean getAcceptare(){ return this.acceptata;}
+    public String getAcceptare(){ return this.acceptata;}
 
     public void setMesaj(String mesaj){
         this.mesaj=mesaj;
     }
-    public void setAcceptare(boolean x){ this.acceptata=x; }
+    public void setAcceptare(String  x){ this.acceptata=x; }
 
 
 }
