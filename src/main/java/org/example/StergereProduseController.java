@@ -28,11 +28,11 @@ public class StergereProduseController {
     public void initialize() {
         String s;
         s="Id      Denumire      Pret    Cantitate   Descriere\n";
-        for(Produs prod: App.user.produse){
+        for(Produs prod: App.getUser().getProduse()){
             s=s+prod.getId()+"  "+prod.getDenumire()+"  "+prod.getPret()+"  "+prod.getCantitate()+"  "+prod.getDescriere()+"\n";
         }
         ListaProduse.setText(s);
-        idProdus.setText(App.user.getUsername()+"@");
+        idProdus.setText(App.getUser().getUsername()+"@");
     }
 
     @FXML
@@ -56,22 +56,22 @@ public class StergereProduseController {
     @FXML
     private void SwitchToLogin() throws IOException{
         App.setRoot("primary.fxml");
-        UserService.updateUser(App.user);
+        UserService.updateUser(App.getUser());
         App.setUser(null);
     }
 
     public void stergereProdus() {
         int index;
-        index=App.user.produse.indexOf(produs);
-        App.user.produse.remove(index);
-        UserService.updateUser(App.user);
+        index=App.getUser().getProduse().indexOf(produs);
+        App.getUser().getProduse().remove(index);
+        UserService.updateUser(App.getUser());
         mesaj2.setText("Produs sters cu succes!");
     }
 
     public void cautaProdus() {
         Produs p;
         String s="Id incorect!";
-        for(Produs prod:App.user.produse){
+        for(Produs prod:App.getUser().getProduse()){
             if(idProdus.getText().toString().equals(prod.getId())){
                 produs=prod;
                s="Produs gasit!";

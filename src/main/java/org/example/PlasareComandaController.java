@@ -64,46 +64,33 @@ public class PlasareComandaController {
     public void placeOrder() {
         LocalDateTime d=LocalDateTime.now();
         ArrayList<Produs> produs= new ArrayList<Produs>();
-        String[]s;
+        String[]s,s2;
         String s1;
         ArrayList<String> vizitat= new ArrayList<String>();
         double x;
-        int aE=0,bE=0,cE=0;
+        //int aE=0,bE=0,cE=0;
 
         for(Produs prod:App.getCos()){
             x=0.0;
-            aE=1;
-            bE=1;
-            cE=0;
             s1=prod.getId();
             s=s1.split("@");
+            produs.clear();
 
             if(vizitat.isEmpty() || vizitat.indexOf(s[0])==-1){
                 vizitat.add(s[0]);
                 for(Produs p:App.getCos()){
-                    if(p.getId().equals(s1)){
+                    s2=p.getId().split("@");
+                    if(s2[0].equals(s[0])){
                         produs.add(p);
                         x=x+p.getPret();
                     }
                 }
-
-                if (nrTel.getText().equals("") == false) {
-                    if (adresa.getText().equals("") == false) {
-                        Comanda c = new Comanda(App.getCos(),adresa.getText(),"ramburs","",x,App.getUser(), UserService.getUser(s[0]) ,nrTel.getText(),d.toString());
-                        c.setAcceptare("-");
-                        ComandaService.addComanda(c);
-                        cE=1;
-                    } else bE=0;
-                } else aE=0;
-
-                if(aE==0){ mesaj.setText("Introduceti un numar de telefon!"); break;}
-                if(bE==0) {mesaj.setText("Introduceti o adresa!"); break;}
-
+               ComandaService.addComanda(produs,adresa.getText(),"Ramburs","-",x,App.getUser(),UserService.getUser(s[0]),nrTel.getText(),d.toString());
 
             }
-            mesaj.setText("Comanda trimisa!");
 
-        }
+
+        }mesaj.setText("Comanda trimisa!");
         /*
             if (nrTel.getText().equals("") == false) {
                 if (adresa.getText().equals("") == false) {

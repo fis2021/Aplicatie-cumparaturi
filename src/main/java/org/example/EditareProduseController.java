@@ -30,11 +30,11 @@ public class EditareProduseController {
     public void initialize() {
         String s;
         s="Id      Denumire      Pret    Cantitate   Descriere\n";
-        for(Produs prod: App.user.produse){
+        for(Produs prod: App.getUser().getProduse()){
             s=s+prod.getId()+"  "+prod.getDenumire()+"  "+prod.getPret()+"  "+prod.getCantitate()+"  "+prod.getDescriere()+"\n";
         }
         ListaProduse.setText(s);
-        idProdus.setText(App.user.getUsername()+"@");
+        idProdus.setText(App.getUser().getUsername()+"@");
     }
 
 
@@ -60,7 +60,7 @@ public class EditareProduseController {
         @FXML
         private void SwitchToLogin() throws IOException{
             App.setRoot("primary.fxml");
-            UserService.updateUser(App.user);
+            UserService.updateUser(App.getUser());
             App.setUser(null);
 
         }
@@ -69,13 +69,13 @@ public class EditareProduseController {
 
         Produs p;
         try {
-            for (Produs prod : App.user.produse) {
+            for (Produs prod : App.getUser().getProduse()) {
                 if (idProdus.getText().equals(prod.getId())) {
                     prod.setDescriere(descriere.getText());
                     prod.setPret(Double.parseDouble(pret.getText()));
                     prod.setCantitate(Double.parseDouble(cantitate.getText()));
                     prod.setDenumire(denumire.getText());
-                    UserService.updateUser(App.user);
+                    UserService.updateUser(App.getUser());
                     mesaj.setText("Editare cu succes!");
                 }
             }
@@ -88,7 +88,7 @@ public class EditareProduseController {
     public void cautaProdus() {
         Produs p;
         System.out.println(idProdus.getText());
-        for(Produs prod:App.user.produse){
+        for(Produs prod:App.getUser().getProduse()){
             if(idProdus.getText().toString().equals(prod.getId())){
                 denumire.setText(prod.getDenumire());
                 pret.setText(prod.getPret()+"");

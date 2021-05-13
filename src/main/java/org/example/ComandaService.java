@@ -20,12 +20,21 @@ public class ComandaService {
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("Order.db").toFile())
-                .openOrCreate("test", "test");
+                .openOrCreate("test2", "test2");
         comandaRepository = database.getRepository(Comanda.class);
     }
+    public static ArrayList<Comanda> getComenziClient(User client) {
+        ArrayList<Comanda> comenzi = new ArrayList<Comanda>();
+        for (Comanda c : comandaRepository.find()) {
+            if (Objects.equals(c.getClient().getUsername(), client.getUsername())) {
+                comenzi.add(c);
+            }
+        }
+        return comenzi;
+    }
 
-    public static void addComanda(Comanda c){
-        comandaRepository.insert(c);
+    public static void addComanda(ArrayList<Produs> produse, String adresaLivrare, String modPlata, String mesaj, double total, User client, User vanzator, String nrTelefon, String dataInregistrare){
+        comandaRepository.insert(new Comanda(produse,adresaLivrare,modPlata,mesaj,total,client,vanzator,nrTelefon,dataInregistrare));
     }
 
     public static void updateComanda(Comanda c){
@@ -60,6 +69,7 @@ public class ComandaService {
         return comenzi;
     }
 
+
     public static Comanda getComanda(String id){
         Comanda x=null;
         for(Comanda c:comandaRepository.find()){
@@ -81,3 +91,5 @@ public class ComandaService {
 
 
 }
+
+
