@@ -27,7 +27,7 @@ public class App extends Application {
         initDirectory();
         UserService.initDatabase();
         ComandaService.initDatabase();
-        scene = new Scene(loadFXML("primary.fxml"), 490, 420);
+        scene = new Scene(loadFXML("primary.fxml"), 950,700);
         stage.setScene(scene);
         stage.show();
     }

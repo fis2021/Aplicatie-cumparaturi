@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="723.0" prefWidth="1018.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.EditareProduseController">
+<AnchorPane prefHeight="701.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.EditareProduseController">
    <children>
-      <VBox layoutX="-2.0" prefHeight="404.0" prefWidth="212.0" style="-fx-background-color: #E3B8F5;">
+      <VBox layoutX="-2.0" prefHeight="710.0" prefWidth="212.0" style="-fx-background-color: #E3B8F5;">
          <children>
-            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Acasa">
+            <Button mnemonicParsing="false" onAction="#SwitchToHome" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Acasa">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
@@ -54,8 +51,8 @@
       <Button layoutX="709.0" layoutY="49.0" mnemonicParsing="false" onAction="#cautaProdus" text="Cauta" />
       <TextField fx:id="idProdus" layoutX="456.0" layoutY="49.0" />
       <Label layoutX="342.0" layoutY="54.0" text="ID produs :" />
-      <TextArea fx:id="ListaProduse" layoutX="354.0" layoutY="482.0" prefHeight="200.0" prefWidth="579.0" />
-      <Label layoutX="145.0" layoutY="537.0" text="Produsele dumneavoastra" />
+      <TextArea fx:id="ListaProduse" layoutX="382.0" layoutY="482.0" prefHeight="200.0" prefWidth="551.0" />
+      <Label layoutX="221.0" layoutY="573.0" text="Produsele dumneavoastra" />
       <TextArea fx:id="descriere" layoutX="454.0" layoutY="294.0" prefHeight="112.0" prefWidth="409.0" />
       <Text fx:id="mesaj" layoutX="578.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>

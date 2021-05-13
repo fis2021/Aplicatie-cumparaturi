@@ -7,11 +7,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="709.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.ComenziController">
+<AnchorPane prefHeight="701.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.ComenziController">
    <children>
-      <VBox layoutX="-2.0" prefHeight="404.0" prefWidth="212.0" style="-fx-background-color: #E3B8F5;">
+      <VBox layoutX="-2.0" prefHeight="710.0" prefWidth="212.0" style="-fx-background-color: #E3B8F5;">
          <children>
-            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Acasa">
+            <Button onAction="#SwitchToHome" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Acasa">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
@@ -47,11 +47,11 @@
       <Label layoutX="380.0" layoutY="232.0" text="Mesaj :" />
       <Button layoutX="704.0" layoutY="130.0" mnemonicParsing="false" onAction="#cautaComanda" text="Cauta" />
       <Button layoutX="662.0" layoutY="587.0" mnemonicParsing="false" onAction="#salveazaComanda" text="Salveaza" />
-      <RadioButton fx:id="accept" layoutX="472.0" layoutY="308.0" mnemonicParsing="false"  text="Acceptare">
+      <RadioButton fx:id="accept" layoutX="472.0" layoutY="308.0" mnemonicParsing="false" text="Acceptare">
          <toggleGroup>
             <ToggleGroup fx:id="Raspuns" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="decline" layoutX="611.0" layoutY="308.0" mnemonicParsing="false"  text="Respingere" toggleGroup="$Raspuns" />
+      <RadioButton fx:id="decline" layoutX="611.0" layoutY="308.0" mnemonicParsing="false" text="Respingere" toggleGroup="$Raspuns" />
       <TextField fx:id="idComanda" layoutX="479.0" layoutY="130.0" />
       <TextArea fx:id="mesaj" layoutX="472.0" layoutY="192.0" prefHeight="102.0" prefWidth="298.0" />
       <TextArea fx:id="ListaComenzi" layoutX="465.0" layoutY="355.0" prefHeight="197.0" prefWidth="429.0" />

@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="579.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.AdaugareProduseController">
+<AnchorPane prefHeight="701.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.AdaugareProduseController">
    <children>
-      <VBox layoutX="-2.0" prefHeight="404.0" prefWidth="212.0" style="-fx-background-color: #E3B8F5;">
+      <VBox layoutX="-2.0" prefHeight="701.0" prefWidth="212.0" style="-fx-background-color: #E3B8F5;">
          <children>
-            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Acasa">
+            <Button onAction="#SwitchToHome" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #E3B8F5;" text="Acasa">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
@@ -58,7 +58,7 @@
          </cursor>
       </Button>
       <Label layoutX="349.0" layoutY="85.0" text="Denumire:" />
-      <Label layoutX="460.0" layoutY="14.0" text="Adaugati Produse">
+      <Label layoutX="427.0" layoutY="14.0" text="Adaugati Produse">
          <font>
             <Font name="Comic Sans MS" size="24.0" />
          </font>
