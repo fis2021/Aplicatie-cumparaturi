@@ -23,6 +23,15 @@ public class ComandaService {
                 .openOrCreate("test2", "test2");
         comandaRepository = database.getRepository(Comanda.class);
     }
+    public static ArrayList<Comanda> getComenziClient(User client) {
+        ArrayList<Comanda> comenzi = new ArrayList<Comanda>();
+        for (Comanda c : comandaRepository.find()) {
+            if (Objects.equals(c.getClient().getUsername(), client.getUsername())) {
+                comenzi.add(c);
+            }
+        }
+        return comenzi;
+    }
 
     public static void addComanda(ArrayList<Produs> produse, String adresaLivrare, String modPlata, String mesaj, double total, User client, User vanzator, String nrTelefon, String dataInregistrare){
         comandaRepository.insert(new Comanda(produse,adresaLivrare,modPlata,mesaj,total,client,vanzator,nrTelefon,dataInregistrare));
@@ -92,3 +101,5 @@ public class ComandaService {
 
 
 }
+
+
