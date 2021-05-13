@@ -1,14 +1,10 @@
 package org.example;
 
-
 import org.dizitart.no2.objects.Id;
-
 import java.util.ArrayList;
-
 public class Comanda {
     @Id
     private String codUnic;
-
     private static int contor;
     private ArrayList<Produs> produse;
     private String adresaLivrare;
@@ -20,11 +16,12 @@ public class Comanda {
     private User vanzator;
     private String NrTelefon;
     private String acceptata;
-
     public Comanda(){
     }
-
     public Comanda(ArrayList<Produs> produse, String adresaLivrare, String modPlata, String mesaj, double total, User client, User vanzator, String nrTelefon, String dataInregistrare){
+        ArrayList<Comanda> com=ComandaService.getComenziClient(client);
+        String t[];
+        String s;
         this.produse=produse;
         this.adresaLivrare=adresaLivrare;
         this.modPlata=modPlata;
@@ -34,12 +31,16 @@ public class Comanda {
         this.vanzator=vanzator;
         this.NrTelefon=nrTelefon;
         this.dataInregistrare=dataInregistrare;
-        contor= ComandaService.lastComanda(client)+1;
-
+        if(com.size()!=0){
+            s= com.get(com.size()-1).getId();
+            t=s.split("#");
+            contor=Integer.parseInt(t[1])+1;}
+        else{
+            contor=0;
+        }
         this.codUnic=client.getUsername()+"#"+contor;
         //contor=contor+1;
     }
-
     public String getAdresaLivrare(){
         return this.adresaLivrare;
     }
@@ -65,11 +66,11 @@ public class Comanda {
         return this.codUnic;
     }
     public String getAcceptare(){ return this.acceptata;}
-
+    public double getTotal(){ return this.totalPret;}
+    public ArrayList<Produs> getProduse(){ return this.produse;}
     public void setMesaj(String mesaj){
         this.mesaj=mesaj;
     }
     public void setAcceptare(String  x){ this.acceptata=x; }
-
 
 }

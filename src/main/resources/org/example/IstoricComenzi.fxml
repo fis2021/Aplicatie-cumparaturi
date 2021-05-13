@@ -43,16 +43,16 @@
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="928.0" layoutY="314.0" mnemonicParsing="false" text="Cauta" />
-      <TextArea layoutX="475.0" layoutY="95.0" prefHeight="200.0" prefWidth="512.0" />
-      <TextField layoutX="815.0" layoutY="396.0" />
-      <TextField layoutX="815.0" layoutY="439.0" />
+      <Button onAction="#cautaComanda" layoutX="928.0" layoutY="314.0" mnemonicParsing="false" text="Cauta" />
+      <TextArea fx:id="ListaComenzi" layoutX="475.0" layoutY="95.0" prefHeight="200.0" prefWidth="512.0" />
+      <TextField fx:id="vanzator" layoutX="815.0" layoutY="396.0" />
+      <TextField fx:id="status" layoutX="815.0" layoutY="439.0" />
       <Label layoutX="221.0" layoutY="454.0" text="Numar de telefon :" />
-      <TextField layoutX="815.0" layoutY="487.0" />
-      <TextField layoutX="365.0" layoutY="543.0" />
-      <TextField layoutX="365.0" layoutY="405.0" />
-      <TextField layoutX="365.0" layoutY="449.0" />
-      <TextField layoutX="365.0" layoutY="497.0" />
+      <TextField fx:id="mesaj" layoutX="815.0" layoutY="487.0" />
+      <TextField fx:id="data" layoutX="365.0" layoutY="543.0" />
+      <TextField fx:id="adresa" layoutX="365.0" layoutY="405.0" />
+      <TextField fx:id="nrTel" layoutX="365.0" layoutY="449.0" />
+      <TextField fx:id="modPlata" layoutX="365.0" layoutY="497.0" />
       <Label layoutX="215.0" layoutY="502.0" text="Modalitate de plata :" />
       <Label layoutX="221.0" layoutY="411.0" text="Adresa de livrare :" />
       <Label layoutX="741.0" layoutY="444.0" />
@@ -61,9 +61,11 @@
       <Label layoutX="225.0" layoutY="548.0" text="Data inregistrare :" />
       <Label layoutX="250.0" layoutY="185.0" prefHeight="21.0" prefWidth="187.0" text="Comenzile dumneavoastra" />
       <Label layoutX="748.0" layoutY="444.0" text="Status :" />
-      <TextArea layoutX="505.0" layoutY="614.0" prefHeight="200.0" prefWidth="415.0" />
+      <TextArea fx:id="listaProduse" layoutX="505.0" layoutY="614.0" prefHeight="200.0" prefWidth="415.0" />
       <Label layoutX="748.0" layoutY="492.0" text="Mesaj :" />
+      <Text fx:id="mesajE" layoutX="701.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Label layoutX="475.0" layoutY="319.0" text="ID comanda :" />
-      <TextField layoutX="648.0" layoutY="314.0" />
+      <TextField fx:id="idComanda" layoutX="648.0" layoutY="314.0" />
+      <Label layoutX="731.0" layoutY="548.0" text="Pret total:" /><TextField fx:id="total" layoutX="815.0" layoutY="543.0" />
    </children>
 </AnchorPane>

@@ -46,6 +46,9 @@ public class App extends Application {
         cosCumparaturi.add(p);
     }
 
+    public static void golireCos(){
+        cosCumparaturi=null;
+    }
 
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
