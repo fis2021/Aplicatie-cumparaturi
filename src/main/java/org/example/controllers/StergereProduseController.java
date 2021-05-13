@@ -1,10 +1,12 @@
-package org.example;
+package org.example.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
+import org.example.App;
+import org.example.services.UserService;
+import org.example.models.Produs;
 
 import java.io.IOException;
 

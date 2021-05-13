@@ -1,7 +1,8 @@
-package org.example;
+package org.example.models;
 
 
 import org.dizitart.no2.objects.Id;
+import org.example.services.ComandaService;
 
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ public class Comanda {
     }
 
     public Comanda(ArrayList<Produs> produse, String adresaLivrare, String modPlata, String mesaj, double total, User client, User vanzator, String nrTelefon, String dataInregistrare){
-        ArrayList<Comanda> com=ComandaService.getComenziClient(client);
+        ArrayList<Comanda> com= ComandaService.getComenziClient(client);
         String t[];
         String s;
         this.produse=produse;

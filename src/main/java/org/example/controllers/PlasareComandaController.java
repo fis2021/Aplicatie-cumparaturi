@@ -1,18 +1,18 @@
-package org.example;
+package org.example.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.example.App;
+import org.example.models.Produs;
+import org.example.services.UserService;
+import org.example.services.ComandaService;
+
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.sql.Time;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Objects;
 
 public class PlasareComandaController {
     @FXML
@@ -31,7 +31,7 @@ public class PlasareComandaController {
     public void initialize(){
         String s="Id   Denumire    Pret    Cantitate    Vanzator    Descriere\n";
         String[] s1;
-        cos=App.getCos();
+        cos= App.getCos();
 
         for(Produs p:cos){
             s1=p.getId().split("@");
@@ -85,7 +85,7 @@ public class PlasareComandaController {
                         x=x+p.getPret();
                     }
                 }
-               ComandaService.addComanda(produs,adresa.getText(),"Ramburs","-",x,App.getUser(),UserService.getUser(s[0]),nrTel.getText(),d.toString());
+               ComandaService.addComanda(produs,adresa.getText(),"Ramburs","-",x,App.getUser(), UserService.getUser(s[0]),nrTel.getText(),d.toString());
 
             }
 

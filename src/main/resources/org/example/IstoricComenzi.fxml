@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="838.0" prefWidth="1063.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.IstoricComenziController">
+<AnchorPane prefHeight="838.0" prefWidth="1063.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.IstoricComenziController">
    <children>
       <VBox layoutY="2.0" prefHeight="838.0" prefWidth="200.0" style="-fx-background-color: #1AECDB;">
          <children>

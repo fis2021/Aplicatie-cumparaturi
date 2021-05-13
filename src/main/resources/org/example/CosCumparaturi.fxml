@@ -5,7 +5,7 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane prefHeight="671.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.CosCumparaturiController">
+<AnchorPane prefHeight="671.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.CosCumparaturiController">
    <children>
       <VBox layoutY="2.0" prefHeight="671.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;">
          <children>
