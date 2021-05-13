@@ -60,6 +60,17 @@ public class ComandaService {
         return comenzi;
     }
 
+    public static ArrayList<Comanda> getComenziClient(User client){
+        ArrayList<Comanda> comenzi= new ArrayList<Comanda>();
+        for(Comanda c:comandaRepository.find()){
+            if(Objects.equals(c.getClient().getUsername(),client.getUsername()))
+            {
+                comenzi.add(c);
+            }
+        }
+        return comenzi;
+    }
+
     public static Comanda getComanda(String id){
         Comanda x=null;
         for(Comanda c:comandaRepository.find()){

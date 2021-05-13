@@ -79,7 +79,7 @@ public class PlasareComandaController {
             if(vizitat.isEmpty() || vizitat.indexOf(s[0])==-1){
                 vizitat.add(s[0]);
                 for(Produs p:App.getCos()){
-                    s2=p.getId().split("a");
+                    s2=p.getId().split("@");
                     if(s2[0].equals(s[0])){
                         produs.add(p);
                         x=x+p.getPret();

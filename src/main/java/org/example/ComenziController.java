@@ -37,7 +37,7 @@ public class ComenziController {
         String s="Id comanda    Nume client    Nr.telefon    Adresa   Mod plata     Data    Acceptata/Respinsa \n ";
         for(Comanda c:comenzi){
             s=s+" "+c.getId()+"   "+c.getClient().getUsername()+"   "+c.getNrTelefon()+"   "+c.getAdresaLivrare()+"   "+c.getModPlata();
-            s=s+"   "+c.getDataInregistrare()+"   "+c.getAcceptare()+"\n";
+            s=s+"   "+c.getDataInregistrare()+"   "+c.getProduse()+"\n";
         }
         ListaComenzi.setText(s);
 
@@ -91,7 +91,7 @@ public class ComenziController {
             c.setAcceptare(a);
             System.out.println(c.getId()+" "+c.getAdresaLivrare()+""+c.getAcceptare());
             ComandaService.updateComanda(c);
-            mesaj1.setText("Comanda slavata cu succes!");
+            mesaj1.setText("Comanda salvata cu succes!");
         }
     }
 

@@ -45,7 +45,7 @@ public class UserService {
                     prod = user.getProduse().get(user.getProduse().size() - 1);
                     s = prod.getId();
                     p = s.split("@");
-                    System.out.println("UITE BA AICEA " + p[0] + p[1]);
+                    //System.out.println("UITE BA AICEA " + p[0] + p[1]);
                     x = Integer.parseInt(p[1]);
                 }
 

@@ -45,7 +45,9 @@ public class App extends Application {
     public static void addCos(Produs p){
         cosCumparaturi.add(p);
     }
-
+    public static void golireCos(){
+        cosCumparaturi=null;
+    }
 
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
