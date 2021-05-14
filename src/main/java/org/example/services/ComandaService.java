@@ -1,17 +1,18 @@
-package org.example;
+package org.example.services;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.example.models.Comanda;
+import org.example.models.Produs;
+import org.example.models.User;
 
 
-import javax.validation.constraints.Null;
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static org.example.FileSystemService.getPathToFile;
+import static org.example.services.FileSystemService.getPathToFile;
 
 public class ComandaService {
 

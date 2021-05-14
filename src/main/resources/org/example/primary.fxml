@@ -11,7 +11,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 
-<VBox alignment="CENTER" prefHeight="292.0" prefWidth="396.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PrimaryController">
+<VBox alignment="CENTER" prefHeight="292.0" prefWidth="396.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.PrimaryController">
    <children>
       <ImageView fx:id="cartView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>

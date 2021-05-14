@@ -1,4 +1,4 @@
-package org.example;
+package org.example.exceptions;
 
 public class UsernameAlreadyExistsException extends Exception {
 

@@ -1,6 +1,6 @@
-package org.example;
+package org.example.models;
 import org.example.App;
-import org.example.OutOfStockException;
+import org.example.exceptions.OutOfStockException;
 public class Produs {
     private static int cod=0;
     private double pret;

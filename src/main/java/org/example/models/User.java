@@ -1,6 +1,7 @@
-package org.example;
+package org.example.models;
 
 import org.dizitart.no2.objects.Id;
+import org.example.App;
 
 import java.util.ArrayList;
 
@@ -78,7 +79,7 @@ public class User {
     }
 
     public void PlasareComanda(ArrayList<Produs> produse,User vanzator,String NrTelefon,String Adresa,String modPlata,String dataInregistare,double total){
-        Comanda c= new Comanda(produse,Adresa,modPlata," ",total,App.getUser(),vanzator,NrTelefon,dataInregistare);
+        Comanda c= new Comanda(produse,Adresa,modPlata," ",total, App.getUser(),vanzator,NrTelefon,dataInregistare);
         comenzi.add(c);
     }
 }

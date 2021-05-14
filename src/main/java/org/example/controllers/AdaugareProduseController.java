@@ -1,12 +1,14 @@
-package org.example;
+package org.example.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 
-import java.awt.*;
 import java.io.IOException;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
+import org.example.App;
+import org.example.models.Produs;
+import org.example.services.UserService;
 
 public class AdaugareProduseController {
     @FXML

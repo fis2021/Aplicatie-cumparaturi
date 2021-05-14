@@ -1,12 +1,14 @@
-package org.example;
+package org.example.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
+import org.example.App;
+import org.example.models.Produs;
+import org.example.models.Comanda;
+import org.example.services.ComandaService;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -41,7 +43,7 @@ public class IstoricComenziController {
     @FXML
     public void initialize(){
         String s="Id comanda  Vanzator  Total  Data plasarii  Status\n";
-        comenzi=ComandaService.getComenziClient(App.getUser());
+        comenzi= ComandaService.getComenziClient(App.getUser());
         for(Comanda c:comenzi)
         {
             s=s+" "+c.getId()+"   "+c.getVanzator().getUsername()+"   "+c.getTotal()+"   "+c.getDataInregistrare();

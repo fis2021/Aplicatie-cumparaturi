@@ -1,8 +1,7 @@
-package org.example;
+package org.example.controllers;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -11,8 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import java.net.URL;
+import org.example.App;
+import org.example.services.UserService;
+import org.example.exceptions.UsernameAlreadyExistsException;
 
 public class SecondaryController {
     @FXML

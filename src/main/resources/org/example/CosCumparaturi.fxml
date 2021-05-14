@@ -5,9 +5,9 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane prefHeight="671.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.CosCumparaturiController">
+<AnchorPane prefHeight="701.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.CosCumparaturiController">
    <children>
-      <VBox layoutY="2.0" prefHeight="671.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;">
+      <VBox layoutY="2.0" prefHeight="706.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;">
          <children>
             <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="183.0" style="-fx-background-color: #1AECDB;" text="Acasa">
                <font>

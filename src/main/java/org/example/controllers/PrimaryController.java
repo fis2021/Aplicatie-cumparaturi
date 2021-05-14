@@ -1,8 +1,7 @@
-package org.example;
+package org.example.controllers;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 
 
 import javafx.fxml.FXML;
@@ -11,6 +10,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import org.example.App;
+import org.example.models.Produs;
+import org.example.models.User;
+import org.example.services.UserService;
+import org.example.exceptions.InvalidCredentialsException;
 
 
 public class PrimaryController {

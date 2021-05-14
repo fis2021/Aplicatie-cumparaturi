@@ -1,7 +1,11 @@
-package org.example;
+package org.example.services;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.example.exceptions.InvalidCredentialsException;
+import org.example.exceptions.UsernameAlreadyExistsException;
+import org.example.models.Produs;
+import org.example.models.User;
 
 
 import java.nio.charset.StandardCharsets;
@@ -10,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static org.example.FileSystemService.getPathToFile;
+import static org.example.services.FileSystemService.getPathToFile;
 
 
 public class UserService {

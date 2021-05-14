@@ -11,7 +11,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 
-<VBox alignment="CENTER" prefHeight="529.0" prefWidth="343.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.SecondaryController">
+<VBox alignment="CENTER" prefHeight="529.0" prefWidth="343.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.SecondaryController">
     <children>
       <ImageView fx:id="lockView" fitHeight="89.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
          <image>

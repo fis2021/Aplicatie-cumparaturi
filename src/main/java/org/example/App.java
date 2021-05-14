@@ -4,11 +4,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.example.Produs;
-import org.example.User;
-import org.example.ComandaService;
-import org.example.FileSystemService;
-import org.example.UserService;
+import org.example.models.Produs;
+import org.example.models.User;
+import org.example.services.ComandaService;
+import org.example.services.FileSystemService;
+import org.example.services.UserService;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -26,7 +27,7 @@ public class App extends Application {
         initDirectory();
         UserService.initDatabase();
         ComandaService.initDatabase();
-        scene = new Scene(loadFXML("primary.fxml"), 490, 420);
+        scene = new Scene(loadFXML("primary.fxml"), 950,700);
         stage.setScene(scene);
         stage.show();
     }

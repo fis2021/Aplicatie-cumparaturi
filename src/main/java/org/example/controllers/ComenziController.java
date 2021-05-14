@@ -1,4 +1,4 @@
-package org.example;
+package org.example.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
@@ -6,6 +6,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
+import org.example.App;
+import org.example.services.UserService;
+import org.example.models.Comanda;
+import org.example.services.ComandaService;
 
 
 import java.io.IOException;

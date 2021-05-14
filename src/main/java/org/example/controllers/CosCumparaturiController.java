@@ -1,4 +1,4 @@
-package org.example;
+package org.example.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -6,8 +6,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.example.App;
-import org.example.OutOfStockException;
-import org.example.Produs;
+import org.example.exceptions.OutOfStockException;
+import org.example.models.Produs;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;

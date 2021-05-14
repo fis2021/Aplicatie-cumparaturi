@@ -8,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.HomePageClientController">
+<AnchorPane prefHeight="702.0" prefWidth="952.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.HomePageClientController">
    <children>
-      <VBox layoutY="2.0" prefHeight="396.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;">
+      <VBox prefHeight="704.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;">
          <children>
             <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="183.0" style="-fx-background-color: #1AECDB;" text="Acasa">
                <font>
@@ -32,19 +32,19 @@
                   <Font name="Cambria" size="18.0" />
                </font>
             </Button>
-            <Button onAction="#SwitchToLogin" mnemonicParsing="false" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: trasparent;" text="Deconectare">
+            <Button mnemonicParsing="false" onAction="#SwitchToLogin" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: trasparent;" text="Deconectare">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Button>
          </children>
       </VBox>
-      <ImageView fx:id="FundalClient" fitHeight="210.0" fitWidth="415.0" layoutX="182.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="FundalClient" fitHeight="344.0" fitWidth="756.0" layoutX="225.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Images/fundal_client.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="216.0" layoutY="253.0" prefHeight="81.0" prefWidth="381.0" text="Bine ati venit la cumparaturi !" textFill="#03adad">
+      <Label layoutX="379.0" layoutY="344.0" prefHeight="81.0" prefWidth="381.0" text="Bine ati venit la cumparaturi !" textFill="#03adad">
          <font>
             <Font name="Cambria Bold Italic" size="24.0" />
          </font>
