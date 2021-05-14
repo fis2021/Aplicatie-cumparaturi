@@ -12,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import static org.example.services.FileSystemService.getPathToFile;
@@ -23,6 +24,7 @@ public class UserService {
     private static Nitrite database;
 
     public static void initDatabase() {
+        FileSystemService.initDirectory();
          database = Nitrite.builder()
                 .filePath(getPathToFile("User.db").toFile())
                 .openOrCreate("test", "test");
@@ -42,6 +44,10 @@ public class UserService {
                     vanzatori.add(user);
         }
         return vanzatori;
+    }
+
+    public static List<User> getAllUsers() {
+        return userRepository.find().toList();
     }
 
     public static int getLastIdOfProduct(User u){
@@ -81,6 +87,7 @@ public class UserService {
     }
 
     public static User verifyCredentials(String username, String password) throws InvalidCredentialsException {
+        User u=null;
         password=encodePassword(username,password);
         try{
             checkUserDoesNotAlreadyExist(username);
@@ -92,21 +99,21 @@ public class UserService {
                 if (Objects.equals(username, user.getUsername())) {
                     if (Objects.equals(password, user.getPassword()) == false)
                         throw new InvalidCredentialsException();
-                    else return user;
+                    else { u=user; break;}
                 }
             }
         }
-        return new User();
+        return u;
     }
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
+     static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+     static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 

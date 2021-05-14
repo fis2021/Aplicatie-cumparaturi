@@ -40,15 +40,19 @@ public class PrimaryController {
         try {
            user = UserService.verifyCredentials(username.getText(), password.getText());
            // message.setText("Account created successfully!");
-           if(user.getRole().equals(new String("Client"))) {
-               App.setRoot("HomePageClient.fxml");
-               App.setUser(user);
-           }
-           else {
-               App.setRoot("HomePageVanzator.fxml");
-               App.setUser(user);
-               Produs.setCod(UserService.getLastIdOfProduct(user));
-           }
+            if(user!=null){
+               if(user.getRole().equals(new String("Client"))) {
+                   App.setRoot("HomePageClient.fxml");
+                   App.setUser(user);
+               }
+               else {
+                   App.setRoot("HomePageVanzator.fxml");
+                   App.setUser(user);
+                   Produs.setCod(UserService.getLastIdOfProduct(user));
+               }
+            }
+            else message.setText("Nu exista acest username!");
+
         } catch (InvalidCredentialsException e) {
             message.setText(e.getMessage());
         }

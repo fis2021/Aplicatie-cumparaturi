@@ -24,10 +24,11 @@ public class App extends Application {
     private static Scene scene;
     @Override
     public void start(Stage stage) throws IOException {
-        initDirectory();
+       //FileSystemService.initDirectory();
         UserService.initDatabase();
         ComandaService.initDatabase();
         scene = new Scene(loadFXML("primary.fxml"), 950,700);
+        stage.setTitle("Aplicatie Cumparaturi");
         stage.setScene(scene);
         stage.show();
     }
@@ -59,11 +60,6 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    private void initDirectory() {
-        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        if (!Files.exists(applicationHomePath))
-            applicationHomePath.toFile().mkdirs();
-    }
 
     public static void main(String[] args) {
         cosCumparaturi= new ArrayList<Produs>();
