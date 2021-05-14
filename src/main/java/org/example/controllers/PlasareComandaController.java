@@ -25,8 +25,8 @@ public class PlasareComandaController {
     private Text mesaj;
     @FXML
     private Label total;
-    private ArrayList<Produs> cos;
-    private double x;
+    private static ArrayList<Produs> cos;
+    private static double x;
 
     public void initialize(){
         String s="Id   Denumire    Pret    Cantitate    Vanzator    Descriere\n";
@@ -35,7 +35,7 @@ public class PlasareComandaController {
 
         for(Produs p:cos){
             s1=p.getId().split("@");
-            x=x+p.getPret();
+            x=x+p.getPret()*p.getCantitate();
             s=s+p.getId()+"   "+p.getDenumire()+"   "+p.getPret()+"   "+p.getCantitate()+"  "+s1[0]+"   "+p.getDescriere()+"\n";
         }
         ListaProd.setText(s);
@@ -82,7 +82,7 @@ public class PlasareComandaController {
                     s2=p.getId().split("@");
                     if(s2[0].equals(s[0])){
                         produs.add(p);
-                        x=x+p.getPret();
+                        x=x+p.getPret()*p.getCantitate();
                     }
                 }
                ComandaService.addComanda(produs,adresa.getText(),"Ramburs","-",x,App.getUser(), UserService.getUser(s[0]),nrTel.getText(),d.toString());

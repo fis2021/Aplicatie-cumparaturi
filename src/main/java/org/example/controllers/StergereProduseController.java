@@ -69,6 +69,7 @@ public class StergereProduseController {
         App.getUser().getProduse().remove(index);
         UserService.updateUser(App.getUser());
         mesaj2.setText("Produs sters cu succes!");
+        initialize();
     }
 
     public void cautaProdus() {

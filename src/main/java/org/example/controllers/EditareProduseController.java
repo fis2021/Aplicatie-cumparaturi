@@ -90,9 +90,10 @@ public class EditareProduseController {
 
     public void cautaProdus() {
         Produs p;
-        System.out.println(idProdus.getText());
+        //System.out.println(idProdus.getText());
         for(Produs prod:App.getUser().getProduse()){
             if(idProdus.getText().toString().equals(prod.getId())){
+              //  System.out.println(idProdus.getText()+" "+prod.getId()+"\n");
                 denumire.setText(prod.getDenumire());
                 pret.setText(prod.getPret()+"");
                 cantitate.setText(prod.getCantitate()+"");

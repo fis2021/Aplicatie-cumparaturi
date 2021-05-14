@@ -42,12 +42,16 @@ public class IstoricComenziController {
 
     @FXML
     public void initialize(){
-        String s="Id comanda  Vanzator  Total  Data plasarii  Status\n";
+        String s="Id comanda  Vanzator  Total  Data plasarii  Status  Sumar Produse\n";
+        String a;
         comenzi= ComandaService.getComenziClient(App.getUser());
         for(Comanda c:comenzi)
         {
             s=s+" "+c.getId()+"   "+c.getVanzator().getUsername()+"   "+c.getTotal()+"   "+c.getDataInregistrare();
-            s=s+"   "+c.getAcceptare()+"\n";
+            if(c.getAcceptare()==null)
+                a="Neprocesata";
+            else a=c.getAcceptare();
+            s=s+"   "+a+"  "+c.getProduse()+"\n";
           //  P.add(c.getProduse().toString());
         }
         ListaComenzi.setText(s);
@@ -92,7 +96,7 @@ public class IstoricComenziController {
                 total.setText(c.getTotal()+"");
                 for(Produs p:c.getProduse()){
                     s1=s1+p.getId()+"   "+p.getDenumire()+"   "+p.getPret()+"   "+p.getCantitate();
-                    s1=s1+p.getDescriere()+"\n";
+                    s1=s1+"  "+p.getDescriere()+"\n";
                 }
                 listaProduse.setText(s1);
 

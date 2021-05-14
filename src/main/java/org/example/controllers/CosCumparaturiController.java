@@ -25,8 +25,8 @@ public class CosCumparaturiController {
     private Text mesajEliminare;
     @FXML
     private Label total;
-    private ArrayList<Produs> cos;
-    private Produs produs=null;
+    private static ArrayList<Produs> cos;
+    private static Produs produs=null;
     @FXML
     public void initialize(){
         String s="Id   Denumire    Pret    Cantitate    Vanzator    Descriere\n";
@@ -63,25 +63,45 @@ public class CosCumparaturiController {
     }
 
     public  void CautaProdus() {
-
         int i=0;
+       // cos=App.getCos();
         if(idProdus.getText().isEmpty()==false) {
-            for (Produs p : cos) {
-                if (Objects.equals(p.getId(), idProdus.getText())) ;
+            for (Produs prod : App.getCos()) {
+                if (prod.getId().equals(idProdus.getText()))
                 {
-                    produs = p;
+                    produs = prod;
+                    //System.out.println(idProdus.getText()+"\n"+prod.getId()+"\n");
                     i = 1;
-                    mesajCautare.setText("Produsul gasit!");
+                    mesajCautare.setText("Produs gasit!");
                     break;
                 }
             }
             if (i == 0) mesajCautare.setText("Produs inexistent!");
         }
         else mesajCautare.setText("Introduceti id-ul produsului de modificat!");
+
     }
 
+        /*int i=0;
+       // cos=App.getCos();
+        if(idProdus.getText().isEmpty()==false) {
+            for (Produs prod : App.getCos()) {
+                if (prod.getId().toString().equals(idProdus.getText())) ;
+                {
+                    produs = prod;
+                    System.out.println(idProdus.getText()+"\n"+prod.getId()+"\n");
+                    i = 1;
+                    mesajCautare.setText("Produs gasit!");
+                    break;
+                }
+            }
+            if (i == 0) mesajCautare.setText("Produs inexistent!");
+        }
+        else mesajCautare.setText("Introduceti id-ul produsului de modificat!");
+    }*/
+
     public void modificaCantitate() {
-        //this.cautaProdus();
+        CautaProdus();
         if(produs==null)
             mesajEliminare.setText("Introduceti id-ul produsului de modificat!");
         else {
@@ -101,7 +121,9 @@ public class CosCumparaturiController {
     }
 
 
-    public void eliminareProdus(ActionEvent actionEvent) {
+    public void eliminareProdus() {
+        CautaProdus();
+        int i=cos.indexOf(produs);
         if(produs!=null) {
             cos.remove(produs);
             produs = null;
@@ -110,7 +132,7 @@ public class CosCumparaturiController {
         else mesajEliminare.setText("Selectati un produs!");
     }
 
-    public void switchToPlasare(ActionEvent actionEvent) throws IOException {
+    public void switchToPlasare() throws IOException {
         if(App.getCos().isEmpty()==true) mesajEliminare.setText("Cosul este gol!");
         else
             App.setRoot("PlasareComanda.fxml");
