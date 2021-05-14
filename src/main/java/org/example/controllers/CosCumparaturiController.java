@@ -56,12 +56,13 @@ public class CosCumparaturiController {
     }
 
     @FXML
-    private void SwitchToLogin() throws IOException{
+    public void SwitchTOLogin() throws IOException {
         App.setRoot("primary.fxml");
         App.setUser(null);
+        App.golireCos();
     }
 
-    public void CautaProdus(ActionEvent actionEvent) {
+    public  void CautaProdus() {
 
         int i=0;
         if(idProdus.getText().isEmpty()==false) {
@@ -79,7 +80,8 @@ public class CosCumparaturiController {
         else mesajCautare.setText("Introduceti id-ul produsului de modificat!");
     }
 
-    public void modificaCantitate(ActionEvent actionEvent) {
+    public void modificaCantitate() {
+        //this.cautaProdus();
         if(produs==null)
             mesajEliminare.setText("Introduceti id-ul produsului de modificat!");
         else {
@@ -98,6 +100,7 @@ public class CosCumparaturiController {
 
     }
 
+
     public void eliminareProdus(ActionEvent actionEvent) {
         if(produs!=null) {
             cos.remove(produs);
@@ -112,4 +115,5 @@ public class CosCumparaturiController {
         else
             App.setRoot("PlasareComanda.fxml");
     }
+
 }

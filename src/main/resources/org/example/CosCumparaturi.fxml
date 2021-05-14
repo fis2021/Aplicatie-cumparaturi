@@ -29,7 +29,7 @@
                   <Font name="Cambria" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#SwitchToLogin" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: trasparent;" text="Deconectare">
+            <Button mnemonicParsing="false" onAction="#SwitchTOLogin" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: trasparent;" text="Deconectare">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>

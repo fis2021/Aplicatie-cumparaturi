@@ -38,7 +38,7 @@ public class ComenziController {
     @FXML
     public void initialize(){
         ArrayList<Comanda> comenzi= ComandaService.getComenziVanzator(App.getUser());
-        String s="Id comanda    Nume client    Nr.telefon    Adresa   Mod plata     Data    Acceptata/Respinsa \n ";
+        String s="Id comanda    Nume client    Nr.telefon    Adresa   Mod plata     Data    Acceptata/Respinsa  Lista produse \n ";
         for(Comanda c:comenzi){
             s=s+" "+c.getId()+"   "+c.getClient().getUsername()+"   "+c.getNrTelefon()+"   "+c.getAdresaLivrare()+"   "+c.getModPlata();
             s=s+"   "+c.getDataInregistrare()+"   "+c.getProduse()+"\n";

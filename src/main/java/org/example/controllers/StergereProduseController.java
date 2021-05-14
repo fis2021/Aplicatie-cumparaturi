@@ -60,6 +60,7 @@ public class StergereProduseController {
         App.setRoot("primary.fxml");
         UserService.updateUser(App.getUser());
         App.setUser(null);
+        UserService.updateDatabase();
     }
 
     public void stergereProdus() {

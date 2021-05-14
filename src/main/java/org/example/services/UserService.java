@@ -20,12 +20,18 @@ import static org.example.services.FileSystemService.getPathToFile;
 public class UserService {
 
     private static ObjectRepository<User> userRepository;
+    private static Nitrite database;
 
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+         database = Nitrite.builder()
                 .filePath(getPathToFile("User.db").toFile())
                 .openOrCreate("test", "test");
         userRepository = database.getRepository(User.class);
+    }
+
+    public static void updateDatabase() {
+        database.close();
+        initDatabase();
     }
 
     public static ArrayList<User> getVanzatori(){

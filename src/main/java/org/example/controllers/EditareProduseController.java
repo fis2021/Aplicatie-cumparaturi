@@ -63,6 +63,7 @@ public class EditareProduseController {
             App.setRoot("primary.fxml");
             UserService.updateUser(App.getUser());
             App.setUser(null);
+            UserService.updateDatabase();
 
         }
 
@@ -83,6 +84,7 @@ public class EditareProduseController {
         }catch(OutOfStockException e){
             mesaj.setText(e.getMessage());
         }
+        initialize();
 
     }
 

@@ -47,7 +47,7 @@ public class IstoricComenziController {
         for(Comanda c:comenzi)
         {
             s=s+" "+c.getId()+"   "+c.getVanzator().getUsername()+"   "+c.getTotal()+"   "+c.getDataInregistrare();
-            s=s+"   "+c.getAcceptare()+"  "+c.getProduse()+"\n";
+            s=s+"   "+c.getAcceptare()+"\n";
           //  P.add(c.getProduse().toString());
         }
         ListaComenzi.setText(s);
