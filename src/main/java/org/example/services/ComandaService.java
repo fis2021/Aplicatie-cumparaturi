@@ -17,13 +17,20 @@ import static org.example.services.FileSystemService.getPathToFile;
 public class ComandaService {
 
     private static ObjectRepository<Comanda> comandaRepository;
+    private static Nitrite database;
 
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+         database = Nitrite.builder()
                 .filePath(getPathToFile("Order.db").toFile())
                 .openOrCreate("test2", "test2");
         comandaRepository = database.getRepository(Comanda.class);
     }
+
+    public static void updateDatabase(){
+        database.close();
+        initDatabase();
+    }
+
     public static ArrayList<Comanda> getComenziClient(User client) {
         ArrayList<Comanda> comenzi = new ArrayList<Comanda>();
         for (Comanda c : comandaRepository.find()) {

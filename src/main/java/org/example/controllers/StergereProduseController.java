@@ -60,6 +60,7 @@ public class StergereProduseController {
         App.setRoot("primary.fxml");
         UserService.updateUser(App.getUser());
         App.setUser(null);
+        UserService.updateDatabase();
     }
 
     public void stergereProdus() {
@@ -68,6 +69,7 @@ public class StergereProduseController {
         App.getUser().getProduse().remove(index);
         UserService.updateUser(App.getUser());
         mesaj2.setText("Produs sters cu succes!");
+        initialize();
     }
 
     public void cautaProdus() {

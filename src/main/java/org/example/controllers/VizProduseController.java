@@ -6,6 +6,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.example.App;
+import org.example.exceptions.OutOfStockException;
 import org.example.models.Produs;
 import org.example.models.User;
 import org.example.services.UserService;
@@ -38,7 +39,8 @@ public class VizProduseController {
         for(User user: vanzatori){
             s=s+" Produsele oferite de :"+user.getUsername()+"\n";
             for(Produs prod:user.getProduse()){
-                s=s+prod.getId()+"   "+prod.getDenumire()+"   "+prod.getCantitate()+"  "+prod.getPret()+" lei    " + prod.getDescriere()+"\n";
+                if(prod.getCantitate()>0)
+                    s=s+prod.getId()+"   "+prod.getDenumire()+"   "+prod.getCantitate()+"  "+prod.getPret()+" lei    " + prod.getDescriere()+"\n";
             }
             s=s+"\n";
         }
@@ -68,17 +70,27 @@ public class VizProduseController {
         App.getCos().clear();
     }
 
-    public void adaugaInCos(ActionEvent actionEvent) {
+    public void adaugaInCos(ActionEvent actionEvent) throws OutOfStockException {
         int c;
+        int a=0;
         Double x;
         if(p!=null) {
             c = Integer.parseInt(cantitate.getText());
             if (c <= p.getCantitate()) {
                 if (c > 0) {
                     x=c*p.getPret();
-                    Produs q = new Produs(p.getPret(), c, p.getDescriere(), p.getDenumire());
-                    q.setId(p.getId());
-                    App.getCos().add(q);
+                    for(Produs k:App.getCos()){
+                        if(k.getId().equals(idProdus.getText())) {
+                            k.setCantitate(k.getCantitate() + Double.parseDouble(cantitate.getText()));
+                            a = 1;
+                            break;
+                        }
+                    }
+                    if(a==0) {
+                        Produs q = new Produs(p.getPret(), c, p.getDescriere(), p.getDenumire());
+                        q.setId(p.getId());
+                        App.getCos().add(q);
+                    }
                     mesaj.setText("Produs adaugat cu succes!");
                     total.setText(x+"");
                 }

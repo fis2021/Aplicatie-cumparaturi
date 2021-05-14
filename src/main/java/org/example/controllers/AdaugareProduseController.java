@@ -47,6 +47,7 @@ public class AdaugareProduseController {
         App.setRoot("primary.fxml");
         UserService.updateUser(App.getUser());
         App.setUser(null);
+        UserService.updateDatabase();
     }
 
     @FXML

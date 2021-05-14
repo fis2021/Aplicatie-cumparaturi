@@ -47,7 +47,7 @@ public class App extends Application {
         cosCumparaturi.add(p);
     }
     public static void golireCos(){
-        cosCumparaturi=null;
+        cosCumparaturi.clear();
     }
 
     public static void setRoot(String fxml) throws IOException {

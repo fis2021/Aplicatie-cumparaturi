@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 import org.example.App;
+import org.example.exceptions.OutOfStockException;
+import org.example.models.Produs;
 import org.example.services.UserService;
 import org.example.models.Comanda;
 import org.example.services.ComandaService;
@@ -38,10 +40,18 @@ public class ComenziController {
     @FXML
     public void initialize(){
         ArrayList<Comanda> comenzi= ComandaService.getComenziVanzator(App.getUser());
-        String s="Id comanda    Nume client    Nr.telefon    Adresa   Mod plata     Data    Acceptata/Respinsa \n ";
+        String s="Id comanda    Nume client    Nr.telefon    Adresa   Mod plata     Data    Acceptata/Respinsa  Sumar Produse \n ";
         for(Comanda c:comenzi){
-            s=s+" "+c.getId()+"   "+c.getClient().getUsername()+"   "+c.getNrTelefon()+"   "+c.getAdresaLivrare()+"   "+c.getModPlata();
-            s=s+"   "+c.getDataInregistrare()+"   "+c.getProduse()+"\n";
+            if(c.getAcceptare()==null) {
+                s = s + " " + c.getId() + "   " + c.getClient().getUsername() + "   " + c.getNrTelefon() + "   " + c.getAdresaLivrare() + "   " + c.getModPlata();
+                s = s + "   " + c.getDataInregistrare() + "   " + c.getAcceptare() + "   " + c.getProduse() + "\n";
+            }
+        }
+        for(Comanda c:comenzi){
+            if(c.getAcceptare()!=null) {
+                s = s + " " + c.getId() + "   " + c.getClient().getUsername() + "   " + c.getNrTelefon() + "   " + c.getAdresaLivrare() + "   " + c.getModPlata();
+                s = s + "   " + c.getDataInregistrare() + "   " + c.getAcceptare() + "   " + c.getProduse() + "\n";
+            }
         }
         ListaComenzi.setText(s);
 
@@ -87,15 +97,45 @@ public class ComenziController {
     @FXML
     public void salveazaComanda() {
         String  a;
+        ArrayList<Produs> produse=App.getUser().getProduse();
+        Produs x;
+        double d=0;
         if(c!= null){
             c.setMesaj(mesaj.getText());
-            if(accept.isSelected())
-                a="Acceptata";
+            if(accept.isSelected()) {
+                a = "Acceptata";
+                try {
+                    for (Produs p : c.getProduse()) {
+                       for(Produs b:produse)
+                           if(p.getId().equals(b.getId())){
+                               d=b.getCantitate()-p.getCantitate();
+                               if(d>=0) {
+                                   b.setCantitate(b.getCantitate() - p.getCantitate());
+                                   UserService.updateUser(App.getUser());
+                                   UserService.updateDatabase();
+                               }
+
+                           }
+                    }
+
+                } catch (OutOfStockException e){
+                    mesaj2.setText("Nu aveti destule produse!");
+                }
+
+            }
             else a="Respinsa";
-            c.setAcceptare(a);
-            System.out.println(c.getId()+" "+c.getAdresaLivrare()+""+c.getAcceptare());
-            ComandaService.updateComanda(c);
-            mesaj1.setText("Comanda salvata cu succes!");
+
+            if((d>=0 && accept.isSelected()) || decline.isSelected() ) {
+                c.setAcceptare(a);
+                System.out.println(c.getId()+" "+c.getAdresaLivrare()+""+c.getAcceptare());
+                ComandaService.updateComanda(c);
+                mesaj1.setText("Comanda salvata cu succes!");
+
+            }
+            else{
+                mesaj.setText("Produsul numai e pe stoc!");
+            }
+            initialize();
         }
     }
 

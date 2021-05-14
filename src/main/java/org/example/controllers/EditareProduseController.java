@@ -63,6 +63,7 @@ public class EditareProduseController {
             App.setRoot("primary.fxml");
             UserService.updateUser(App.getUser());
             App.setUser(null);
+            UserService.updateDatabase();
 
         }
 
@@ -83,14 +84,16 @@ public class EditareProduseController {
         }catch(OutOfStockException e){
             mesaj.setText(e.getMessage());
         }
+        initialize();
 
     }
 
     public void cautaProdus() {
         Produs p;
-        System.out.println(idProdus.getText());
+        //System.out.println(idProdus.getText());
         for(Produs prod:App.getUser().getProduse()){
             if(idProdus.getText().toString().equals(prod.getId())){
+              //  System.out.println(idProdus.getText()+" "+prod.getId()+"\n");
                 denumire.setText(prod.getDenumire());
                 pret.setText(prod.getPret()+"");
                 cantitate.setText(prod.getCantitate()+"");
