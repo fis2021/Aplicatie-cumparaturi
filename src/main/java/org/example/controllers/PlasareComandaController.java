@@ -90,7 +90,10 @@ public class PlasareComandaController {
             }
 
 
-        }mesaj.setText("Comanda trimisa!");
+        }
+        mesaj.setText("Comanda trimisa!");
+        App.golireCos();
+
         /*
             if (nrTel.getText().equals("") == false) {
                 if (adresa.getText().equals("") == false) {

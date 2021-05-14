@@ -39,7 +39,8 @@ public class VizProduseController {
         for(User user: vanzatori){
             s=s+" Produsele oferite de :"+user.getUsername()+"\n";
             for(Produs prod:user.getProduse()){
-                s=s+prod.getId()+"   "+prod.getDenumire()+"   "+prod.getCantitate()+"  "+prod.getPret()+" lei    " + prod.getDescriere()+"\n";
+                if(prod.getCantitate()>0)
+                    s=s+prod.getId()+"   "+prod.getDenumire()+"   "+prod.getCantitate()+"  "+prod.getPret()+" lei    " + prod.getDescriere()+"\n";
             }
             s=s+"\n";
         }

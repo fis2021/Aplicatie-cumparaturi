@@ -24,7 +24,7 @@ public class Produs {
     }
     public String toString(){
         String s;
-        s=this.id+"   "+this.denumire+"  "+this.pret+"  "+this.cantitate+" "+this.descriere;
+        s=this.id+"   "+this.denumire+"  P:"+this.pret+"  Cant.:"+this.cantitate+" "+this.descriere;
         s=s+"\n";
         return s;
     }
