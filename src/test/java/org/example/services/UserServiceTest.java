@@ -39,6 +39,7 @@ class UserServiceTest {
 
     @AfterEach
     void tearDown() {
+        UserService.removeUsers();
         UserService.closeDatabase();
         //SessionService.destroySession();
     }
@@ -94,17 +95,21 @@ class UserServiceTest {
     @Test
     @DisplayName("Test get last id of a product of a vendor")
     void testGetLastIdOfProduct() throws Exception{
+        UserService.removeUsers();
         UserService.addUser("v1","v1","Vanzator");
         App.setUser(UserService.getUser("v1"));
+        UserService.getUser("v1").setProduseNull();
+        UserService.updateUser(App.getUser());
         assertThat(UserService.getLastIdOfProduct(App.getUser())).isEqualTo(-1);
 
         Produs p= new Produs(2.1,10.0,"Descriere","denumire");
-        Produs p1= new Produs(2.1,10.0,"Descriere1","denumire1");
+        //Produs p1= new Produs(2.1,10.0,"Descriere1","denumire1");
         App.getUser().addProduse(p);
-        App.getUser().addProduse(p1);
+       // App.getUser().addProduse(p1);
+        System.out.println(App.getUser().getProduse());
         UserService.updateUser(App.getUser());
-
-        assertThat(UserService.getLastIdOfProduct(App.getUser())).isEqualTo(2);
+        assertThat(UserService.getLastIdOfProduct(App.getUser())).isEqualTo(3);
+        UserService.removeUsers();
     }
 
 }

@@ -33,18 +33,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class PrimaryControllerTest {
    private static Scene scene;
 
-    static void beforeAll()
-            throws Exception {
-        FileSystemService.setApplicationFolder("AplicatieCumparaturi_test");
-        FileSystemService.initDirectory();
-        UserService.initDatabase();
-    }
 
     @AfterAll
     static void afterAll()
             throws IOException {
-       /* FileUtils.cleanDirectory(FileSystemService.getApplicationHomePath()
-                .toFile());*/
+       FileUtils.cleanDirectory(FileSystemService.getApplicationHomePath()
+                .toFile());
     }
 
     @BeforeEach
@@ -52,24 +46,15 @@ class PrimaryControllerTest {
     {
         UserService.removeUsers();
     }
-         /*   throws IOException {
-        FileUtils.cleanDirectory(FileSystemService.getApplicationHomePath()
-                .toFile());
-        UserService.initDatabase();*/
-    //}
+
 
     @AfterEach
     void tearDown() {
         UserService.removeUsers();
         UserService.closeDatabase();
+        ComandaService.closeDatabase();
     }
 
-   /* @BeforeEach
-   void setUp() throws Exception {
-        FileSystemService.APPLICATION_FOLDER = ".test-Aplicatie-cumparaturi";
-        FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
-        UserService.initDatabase();
-    }*/
 
     @Start
     public void start(Stage stage) throws IOException {
@@ -85,12 +70,12 @@ class PrimaryControllerTest {
     @Test
     void testDemo(FxRobot robot) throws Exception{
         UserService.addUser("Admin","Admin","ADMIN");
-       robot.clickOn("#username");
+        robot.clickOn("#username");
         robot.write("Admin");
         robot.clickOn("#password");
         robot.write("Admin10909090");
-       // robot.clickOn("#login");
-        //assertThat(robot.lookup("#mesaj").queryText()).hasText("Username or Password is incorrect!");
+        robot.clickOn("#login");
+        assertThat(robot.lookup("#mesaj").queryText()).hasText("Username or Password is incorrect!");
    }
 
 }

@@ -22,12 +22,12 @@
          <font>
             <Font size="55.0" />
          </font></Label>
-      <TextField fx:id="usernameField" promptText="Username" />
-      <PasswordField fx:id="passwordField" promptText="Password" />
-      <ComboBox fx:id="rol" prefWidth="150.0" promptText="Rol" />
+      <TextField fx:id="usernameField" id="usernameR" promptText="Username" />
+      <PasswordField fx:id="passwordField"  id="passwordR" promptText="Password" />
+      <ComboBox fx:id="rol" id="role" prefWidth="150.0" promptText="Rol" />
 
-        <Button fx:id="secondaryButton" onAction="#handleRegisterAction" text="Inregistrare" />
-      <Text fx:id="message" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+        <Button fx:id="secondaryButton"  id="registerButton" onAction="#handleRegisterAction" text="Inregistrare" />
+      <Text fx:id="message" id="messageR" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
       <Button mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="21.0" prefWidth="62.0" text="Inapoi" />
     </children>
     <padding>

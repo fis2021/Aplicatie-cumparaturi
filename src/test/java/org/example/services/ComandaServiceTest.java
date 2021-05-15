@@ -95,7 +95,6 @@ class ComandaServiceTest {
         Comanda y= ComandaService.getAllComanda().get(0);
         assertThat(y.getAcceptare()).isEqualTo("Preluata");
     }
-   /* @Test
-    @DisplayName("Check if orders is upadated")*/
+
 
 }
