@@ -24,7 +24,7 @@ public class PlasareComandaController {
     @FXML
     private Text mesaj;
     @FXML
-    private Label total;
+    private Text total;
     private static ArrayList<Produs> cos;
     private static double x;
 
@@ -70,30 +70,34 @@ public class PlasareComandaController {
         double x;
         //int aE=0,bE=0,cE=0;
 
-        for(Produs prod:App.getCos()){
-            x=0.0;
-            s1=prod.getId();
-            s=s1.split("@");
-            produs.clear();
+        if(adresa.getText()!="" && adresa.getText() != null && adresa.getText().trim().isEmpty()==false) {
+            if(nrTel.getText()!="" && nrTel.getText() != null && nrTel.getText().trim().isEmpty()==false) {
 
-            if(vizitat.isEmpty() || vizitat.indexOf(s[0])==-1){
-                vizitat.add(s[0]);
-                for(Produs p:App.getCos()){
-                    s2=p.getId().split("@");
-                    if(s2[0].equals(s[0])){
-                        produs.add(p);
-                        x=x+p.getPret()*p.getCantitate();
+                for (Produs prod : App.getCos()) {
+                    x = 0.0;
+                    s1 = prod.getId();
+                    s = s1.split("@");
+                    produs.clear();
+
+                    if (vizitat.isEmpty() || vizitat.indexOf(s[0]) == -1) {
+                        vizitat.add(s[0]);
+                        for (Produs p : App.getCos()) {
+                            s2 = p.getId().split("@");
+                            if (s2[0].equals(s[0])) {
+                                produs.add(p);
+                                x = x + p.getPret() * p.getCantitate();
+                            }
+                        }
+                        ComandaService.addComanda(produs, adresa.getText(), "Ramburs", "-", x, App.getUser(), UserService.getUser(s[0]), nrTel.getText(), d.toString());
+
                     }
+
+
                 }
-               ComandaService.addComanda(produs,adresa.getText(),"Ramburs","-",x,App.getUser(), UserService.getUser(s[0]),nrTel.getText(),d.toString());
-
-            }
-
-
-        }
-        mesaj.setText("Comanda trimisa!");
-        App.golireCos();
-
+                mesaj.setText("Comanda trimisa!");
+                App.golireCos();
+            }else mesaj.setText("Completati datele!");
+        }else mesaj.setText("Completati datele!");
         /*
             if (nrTel.getText().equals("") == false) {
                 if (adresa.getText().equals("") == false) {
