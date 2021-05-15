@@ -24,6 +24,11 @@ import static org.testfx.assertions.api.Assertions.assertThat;
 class AdaugareProduseControllerTest {
 
     private static Scene scene;
+    @BeforeAll
+    static void beforeAll() {
+        FileSystemService.setApplicationFolder("AplicatieCumparaturi_test");
+        FileSystemService.initDirectory();
+    }
 
     @AfterAll
     static void afterAll()
@@ -73,8 +78,9 @@ class AdaugareProduseControllerTest {
         robot.clickOn("#cantitate").write("200.0");
         robot.clickOn("#descriere").write("Mere ionatan, toamna 2020, origine: Romania");
         robot.clickOn("#adaugaButton");
+        UserService.updateUser(App.getUser());
         assertThat(robot.lookup("#message").queryText()).hasText("Produsul a fost adaugat cu succes!");
-        assertThat(App.getUser().getProduse().get(0).getDenumire().equals("Mere Ionatan"));
+        assertThat(UserService.getUser(App.getUser().getUsername()).getProduse().get(0).getDenumire().equals("Mere Ionatan"));
         UserService.removeUsers();
     }
 

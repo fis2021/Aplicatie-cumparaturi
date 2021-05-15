@@ -108,7 +108,7 @@ class UserServiceTest {
        // App.getUser().addProduse(p1);
         System.out.println(App.getUser().getProduse());
         UserService.updateUser(App.getUser());
-        assertThat(UserService.getLastIdOfProduct(App.getUser())).isEqualTo(4);
+        assertThat(UserService.getLastIdOfProduct(App.getUser())).isEqualTo(0);
         UserService.removeUsers();
     }
 

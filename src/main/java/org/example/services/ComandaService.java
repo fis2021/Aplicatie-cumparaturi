@@ -2,6 +2,7 @@ package org.example.services;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.dizitart.no2.objects.filters.ObjectFilters;
 import org.example.models.Comanda;
 import org.example.models.Produs;
 import org.example.models.User;
@@ -35,6 +36,10 @@ public class ComandaService {
 
     public static List<Comanda> getAllComanda() {
         return comandaRepository.find().toList();
+    }
+    public static void removeAllComanda(){
+         if(comandaRepository.find() != null)
+            comandaRepository.remove(ObjectFilters.ALL);
     }
 
     public static ArrayList<Comanda> getComenziClient(User client) {
