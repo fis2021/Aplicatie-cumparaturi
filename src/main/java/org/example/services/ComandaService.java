@@ -104,6 +104,9 @@ public class ComandaService {
     }
 
 
+    public static void closeDatabase() {
+        database.close();
+    }
 }
 
 

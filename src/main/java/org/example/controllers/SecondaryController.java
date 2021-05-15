@@ -41,14 +41,16 @@ public class SecondaryController {
 
     @FXML
     public void handleRegisterAction() {
-        try {
-            UserService.addUser(usernameField.getText(), passwordField.getText(), (String) rol.getValue());
-            message.setText("Account created successfully!");
-        } catch (UsernameAlreadyExistsException e) {
-            message.setText(e.getMessage());
+        if (usernameField.getText() != null && passwordField.getText() != null && rol.getValue() != null) {
+            try {
+                UserService.addUser(usernameField.getText(), passwordField.getText(), (String) rol.getValue());
+                message.setText("Account created successfully!");
+            } catch (UsernameAlreadyExistsException e) {
+                message.setText(e.getMessage());
+            }
         }
+        else message.setText("Completati toate campurile!");
     }
-
 
     @FXML
     private void switchToPrimary() throws IOException {

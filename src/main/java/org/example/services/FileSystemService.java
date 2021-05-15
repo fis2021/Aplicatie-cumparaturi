@@ -11,6 +11,15 @@ public class FileSystemService {
 
     public static Path getPathToFile(String... path) {
         return getApplicationHomeFolder().resolve(Paths.get(".", path));
+
+    }
+    public static Path getApplicationHomePath() {
+        return Paths.get(USER_FOLDER, APPLICATION_FOLDER);
+    }
+
+
+    public static void setApplicationFolder(String applicationFolder) {
+        APPLICATION_FOLDER = applicationFolder;
     }
 
     public static Path getApplicationHomeFolder() {

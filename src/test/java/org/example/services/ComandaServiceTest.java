@@ -5,10 +5,9 @@ import org.example.App;
 import org.example.models.Comanda;
 import org.example.models.Produs;
 import org.example.models.User;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,7 +15,34 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ComandaServiceTest {
     public static final String C1="c1";
+
     @BeforeAll
+    static void beforeAll() {
+        FileSystemService.setApplicationFolder("AplicatieCumparaturi_test");
+        FileSystemService.initDirectory();
+    }
+
+    @AfterAll
+    static void afterAll()
+            throws IOException {
+        FileUtils.cleanDirectory(FileSystemService.getApplicationHomePath()
+                .toFile());
+    }
+
+    @BeforeEach
+    void setUp()
+            throws IOException {
+        FileUtils.cleanDirectory(FileSystemService.getApplicationHomePath()
+                .toFile());
+        ComandaService.initDatabase();
+    }
+
+    @AfterEach
+    void tearDown() {
+        ComandaService.closeDatabase();
+        //SessionService.destroySession();
+    }
+   /* @BeforeAll
     static void beforeAll() throws Exception{
         System.out.println("Before Class");
         FileSystemService.APPLICATION_FOLDER = ".test-Aplicatie-Cumparaturi";
@@ -24,7 +50,7 @@ class ComandaServiceTest {
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         // FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         ComandaService.initDatabase();
-    }
+    }*/
     @Test
     @DisplayName("Database is initialized and there are no orders.")
     void testDatabaseIsInitializedAndNoUserIsPersisted() {

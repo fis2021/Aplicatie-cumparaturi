@@ -1,7 +1,9 @@
 package org.example.services;
 
 import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.objects.ObjectFilter;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.dizitart.no2.objects.filters.ObjectFilters;
 import org.example.exceptions.InvalidCredentialsException;
 import org.example.exceptions.UsernameAlreadyExistsException;
 import org.example.models.Produs;
@@ -30,10 +32,17 @@ public class UserService {
                 .openOrCreate("test", "test");
         userRepository = database.getRepository(User.class);
     }
+    public static void closeDatabase(){
+        database.close();
+    }
 
     public static void updateDatabase() {
         database.close();
         initDatabase();
+    }
+
+    public static void removeUsers(){
+       userRepository.remove(ObjectFilters.ALL);
     }
 
     public static ArrayList<User> getVanzatori(){
