@@ -86,7 +86,7 @@ class VizProduseControllerTest {
 
     @Test
     @DisplayName("Verify VizProduse tab is displayed and initialize method")
-    void testDysplayVizProduse(FxRobot robot){
+    void testDisplayVizProduse(FxRobot robot){
         assertThat(robot.lookup("#mesaj").queryText()).hasText("");
         assertThat(robot.lookup("#mesajCauta").queryText()).hasText("");
     }

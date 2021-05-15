@@ -8,6 +8,8 @@ import javafx.scene.text.Text;
 import org.example.App;
 import org.example.exceptions.OutOfStockException;
 import org.example.models.Produs;
+import org.example.services.UserService;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -24,7 +26,7 @@ public class CosCumparaturiController {
     @FXML
     private Text mesajEliminare;
     @FXML
-    private Label total;
+    private Text total;
     private static ArrayList<Produs> cos;
     private static Produs produs=null;
     @FXML
@@ -39,7 +41,7 @@ public class CosCumparaturiController {
             s=s+p.getId()+"   "+p.getDenumire()+"   "+p.getPret()+"   "+p.getCantitate()+"  "+s1[0]+"   "+p.getDescriere()+"\n";
         }
         ListaProduse.setText(s);
-        total.setText(x+" lei");
+        total.setText(x+"");
     }
 
     @FXML
@@ -102,17 +104,29 @@ public class CosCumparaturiController {
 
     public void modificaCantitate() {
         CautaProdus();
+        String []t;
+        double cant=0;
         if(produs==null)
             mesajEliminare.setText("Introduceti id-ul produsului de modificat!");
         else {
+            t=produs.getId().split("@");
+            for(Produs x:UserService.getUser(t[0]).getProduse()){
+                if(x.getId().equals(produs.getId())){
+                    cant=x.getCantitate();
+                    break;
+                }
+            }
             try {
-                if(Objects.equals(cantitateNoua.getText(),"0")){
-                    mesajEliminare.setText("Puteti sterge produsul daca apasati butonul de mai sus!");
-                }
-                else {
-                    produs.setCantitate(Double.parseDouble(cantitateNoua.getText()));
-                    initialize();
-                }
+                if(cantitateNoua.getText()!="" && cantitateNoua.getText() != null && cantitateNoua.getText().trim().isEmpty()==false){
+                    if(Double.parseDouble(cantitateNoua.getText()) <= 0){
+                        mesajEliminare.setText("Introduceti o cantitate corecta!");
+                    }
+                    else if(Double.parseDouble(cantitateNoua.getText())<=cant){
+                        produs.setCantitate(Double.parseDouble(cantitateNoua.getText()));
+                        initialize();
+                    }
+                    else mesajEliminare.setText("Cantitate indisponibila!");
+                } else mesajEliminare.setText("Introduceti o cantitate corecta!");
             }catch (OutOfStockException e){
                 mesajEliminare.setText("Nu puteti da numere negative!");
             }
