@@ -17,22 +17,22 @@
                   <Font name="Cambria" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#SwitchToIstoric" prefHeight="80.0" prefWidth="182.0" style="-fx-background-color: #1AECDB;" text="Istoric Comenzi">
+            <Button id="istoric" mnemonicParsing="false" onAction="#SwitchToIstoric" prefHeight="80.0" prefWidth="182.0" style="-fx-background-color: #1AECDB;" text="Istoric Comenzi">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#SwitchToCos" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: #1AECDB;" text="Cos de cumparaturi">
+            <Button id="cos" mnemonicParsing="false" onAction="#SwitchToCos" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: #1AECDB;" text="Cos de cumparaturi">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#SwitchToProduse" prefHeight="85.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;" text="Vizualizare produse">
+            <Button id="produse" mnemonicParsing="false" onAction="#SwitchToProduse" prefHeight="85.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;" text="Vizualizare produse">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#SwitchToLogin" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: trasparent;" text="Deconectare">
+            <Button id="login" mnemonicParsing="false" onAction="#SwitchToLogin" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: trasparent;" text="Deconectare">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>

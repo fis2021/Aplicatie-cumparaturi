@@ -42,6 +42,7 @@ public class UserService {
     }
 
     public static void removeUsers(){
+        if(userRepository.find() != null)
        userRepository.remove(ObjectFilters.ALL);
     }
 
