@@ -70,8 +70,12 @@ class EditareProduseControllerTest {
     }
 
     @Test
-    @DisplayName("Verify cautaProdus method and initialize")
+    @DisplayName("Verify cautaProdus method and initialize succes scenario")
     void testCauta(FxRobot robot){
+
+        robot.clickOn("#salveazaButton");
+        assertThat(robot.lookup("#message").queryText()).hasText("Introduceti id-ul unui produs!");
+
         robot.clickOn("#idProdus").write("0");
         robot.clickOn("#cautaButton");
         robot.clickOn("#descriere").write("golden");
@@ -81,6 +85,14 @@ class EditareProduseControllerTest {
         assertThat(App.getUser().getProduse().get(0).getDescriere().equals("Mere romaesti golden"));
 
     }
+    @Test
+    @DisplayName("Verify cautaProdus method and initialize fail scenario")
+    void testCauta1(FxRobot robot) {
+
+        robot.clickOn("#salveazaButton");
+        assertThat(robot.lookup("#message").queryText()).hasText("Introduceti id-ul unui produs!");
+    }
 
 
-}
+
+    }

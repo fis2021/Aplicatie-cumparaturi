@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public class App extends Application {
     private static User user;
-    private static ArrayList<Produs> cosCumparaturi;
+    private static ArrayList<Produs> cosCumparaturi= new ArrayList<>();
     private static Scene scene;
     @Override
     public void start(Stage stage) throws IOException {
@@ -50,6 +50,9 @@ public class App extends Application {
     public static void golireCos(){
         cosCumparaturi.clear();
     }
+    //public static void initializeCos()
+
+
 
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));

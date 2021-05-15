@@ -79,11 +79,13 @@ public class VizProduseController {
             if (c <= p.getCantitate()) {
                 if (c > 0) {
                     x=c*p.getPret();
-                    for(Produs k:App.getCos()){
-                        if(k.getId().equals(idProdus.getText())) {
-                            k.setCantitate(k.getCantitate() + Double.parseDouble(cantitate.getText()));
-                            a = 1;
-                            break;
+                    if(App.getCos().isEmpty()==false){
+                        for(Produs k:App.getCos()){
+                            if(k.getId().equals(idProdus.getText())) {
+                                k.setCantitate(k.getCantitate() + Double.parseDouble(cantitate.getText()));
+                                a = 1;
+                                break;
+                            }
                         }
                     }
                     if(a==0) {
