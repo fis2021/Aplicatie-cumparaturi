@@ -45,11 +45,11 @@
             </Button>
          </children>
       </VBox>
-      <TextField fx:id="denumire" layoutX="440.0" layoutY="80.0" />
-      <TextField fx:id="pret" layoutX="440.0" layoutY="132.0" />
-      <TextField fx:id="cantitate" layoutX="440.0" layoutY="187.0" />
-      <TextArea fx:id="descriere" layoutX="434.0" layoutY="240.0" prefHeight="113.0" prefWidth="200.0" />
-      <Button layoutX="495.0" layoutY="389.0" mnemonicParsing="false" onAction="#addProduct" style="-fx-background-color: transparent;" text="Adauga">
+      <TextField id="denumire" fx:id="denumire" layoutX="440.0" layoutY="80.0" />
+      <TextField id="pret" fx:id="pret" layoutX="440.0" layoutY="132.0" />
+      <TextField id="cantitate" fx:id="cantitate" layoutX="440.0" layoutY="187.0" />
+      <TextArea id="descriere" fx:id="descriere" layoutX="434.0" layoutY="240.0" prefHeight="113.0" prefWidth="200.0" />
+      <Button id="adaugaButton" layoutX="495.0" layoutY="389.0" mnemonicParsing="false" onAction="#addProduct" style="-fx-background-color: transparent;" text="Adauga">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font>
@@ -69,7 +69,7 @@
       <Label layoutX="367.0" layoutY="137.0" text="Pret:" />
       <Label layoutX="308.0" layoutY="192.0" text="Cantiate (buc/Kg):" />
       <Label layoutX="349.0" layoutY="297.0" text="Descriere:" />
-      <Text fx:id="mesaj" layoutX="407.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="253.6708984375" />
+      <Text fx:id="mesaj" id="message" layoutX="407.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="253.6708984375" />
    </children>
 
 </AnchorPane>
