@@ -1,6 +1,5 @@
 package org.example.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -70,7 +69,7 @@ public class VizProduseController {
         App.getCos().clear();
     }
 
-    public void adaugaInCos(ActionEvent actionEvent) throws OutOfStockException {
+    public void adaugaInCos() throws OutOfStockException {
         int c;
         int a=0;
         Double x;
@@ -106,7 +105,7 @@ public class VizProduseController {
 
     }
 
-    public void cautaProdus(ActionEvent actionEvent) {
+    public void cautaProdus() {
         p=null;
         for(User user:vanzatori){
             for(Produs prod:user.getProduse())

@@ -36,7 +36,6 @@ public class ComenziController {
     @FXML
     private ToggleGroup Raspuns;
     private static Comanda c;
-
     @FXML
     public void initialize(){
         ArrayList<Comanda> comenzi= ComandaService.getComenziVanzator(App.getUser());
@@ -54,10 +53,6 @@ public class ComenziController {
             }
         }
         ListaComenzi.setText(s);
-
-
-
-
     }
 
     @FXML
@@ -86,6 +81,8 @@ public class ComenziController {
         App.setUser(null);
     }
 
+
+
     @FXML
     public void cautaComanda() {
         c= ComandaService.getComanda(idComanda.getText());
@@ -96,47 +93,45 @@ public class ComenziController {
 
     @FXML
     public void salveazaComanda() {
-        String  a;
-        ArrayList<Produs> produse=App.getUser().getProduse();
+        String a;
+        ArrayList<Produs> produse = App.getUser().getProduse();
         Produs x;
-        double d=0;
-        if(c!= null){
-            c.setMesaj(mesaj.getText());
-            if(accept.isSelected()) {
-                a = "Acceptata";
-                try {
-                    for (Produs p : c.getProduse()) {
-                       for(Produs b:produse)
-                           if(p.getId().equals(b.getId())){
-                               d=b.getCantitate()-p.getCantitate();
-                               if(d>=0) {
-                                   b.setCantitate(b.getCantitate() - p.getCantitate());
-                                   UserService.updateUser(App.getUser());
-                                   UserService.updateDatabase();
-                               }
+        double d = 0;
+        if (mesaj.getText() != "" && mesaj.getText() != null && mesaj.getText().trim().isEmpty() == false ) {
+            if (c != null) {
+                c.setMesaj(mesaj.getText());
+                if (accept.isSelected()) {
+                    a = "Acceptata";
+                    try {
+                        for (Produs p : c.getProduse()) {
+                            for (Produs b : produse)
+                                if (p.getId().equals(b.getId())) {
+                                    d = b.getCantitate() - p.getCantitate();
+                                    if (d >= 0) {
+                                        b.setCantitate(b.getCantitate() - p.getCantitate());
+                                        UserService.updateUser(App.getUser());
+                                        UserService.updateDatabase();
+                                    }
 
-                           }
+                                }
+                        }
+
+                    } catch (OutOfStockException e) {
+                        mesaj2.setText("Nu aveti destule produse!");
                     }
 
-                } catch (OutOfStockException e){
-                    mesaj2.setText("Nu aveti destule produse!");
+                } else a = "Respinsa";
+                if ((d >= 0 && accept.isSelected()) || decline.isSelected()) {
+                    c.setAcceptare(a);
+                    System.out.println(c.getId() + " " + c.getAdresaLivrare() + "" + c.getAcceptare());
+                    ComandaService.updateComanda(c);
+                    mesaj1.setText("Comanda salvata cu succes!");
+                } else {
+                    mesaj.setText("Produsul numai e pe stoc!");
                 }
-
+                initialize();
             }
-            else a="Respinsa";
-
-            if((d>=0 && accept.isSelected()) || decline.isSelected() ) {
-                c.setAcceptare(a);
-                System.out.println(c.getId()+" "+c.getAdresaLivrare()+""+c.getAcceptare());
-                ComandaService.updateComanda(c);
-                mesaj1.setText("Comanda salvata cu succes!");
-
-            }
-            else{
-                mesaj.setText("Produsul numai e pe stoc!");
-            }
-            initialize();
-        }
+        }else mesaj2.setText("Completati mesajul!");
     }
 
 
