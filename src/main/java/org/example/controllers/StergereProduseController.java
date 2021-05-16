@@ -65,11 +65,14 @@ public class StergereProduseController {
 
     public void stergereProdus() {
         int index;
-        index=App.getUser().getProduse().indexOf(produs);
-        App.getUser().getProduse().remove(index);
-        UserService.updateUser(App.getUser());
-        mesaj2.setText("Produs sters cu succes!");
-        initialize();
+        if(mesaj1.getText().equals("Produs gasit!")) {
+            index = App.getUser().getProduse().indexOf(produs);
+            App.getUser().getProduse().remove(index);
+            UserService.updateUser(App.getUser());
+            mesaj2.setText("Produs sters cu succes!");
+            initialize();
+        }
+        else mesaj2.setText("Introduceti id-ul produsului dorit!");
     }
 
     public void cautaProdus() {

@@ -20,14 +20,15 @@ import java.util.ArrayList;
  */
 public class App extends Application {
     private static User user;
-    private static ArrayList<Produs> cosCumparaturi;
+    private static ArrayList<Produs> cosCumparaturi= new ArrayList<>();
     private static Scene scene;
     @Override
     public void start(Stage stage) throws IOException {
-        initDirectory();
+       //FileSystemService.initDirectory();
         UserService.initDatabase();
         ComandaService.initDatabase();
         scene = new Scene(loadFXML("primary.fxml"), 950,700);
+        stage.setTitle("Aplicatie Cumparaturi");
         stage.setScene(scene);
         stage.show();
     }
@@ -49,21 +50,19 @@ public class App extends Application {
     public static void golireCos(){
         cosCumparaturi.clear();
     }
+    //public static void initializeCos()
+
+
 
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml));
         return fxmlLoader.load();
     }
 
-    private void initDirectory() {
-        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        if (!Files.exists(applicationHomePath))
-            applicationHomePath.toFile().mkdirs();
-    }
 
     public static void main(String[] args) {
         cosCumparaturi= new ArrayList<Produs>();

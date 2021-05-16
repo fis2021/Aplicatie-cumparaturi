@@ -26,6 +26,7 @@ public class EditareProduseController {
         private Text mesaj;
     @FXML
         private TextArea ListaProduse;
+    private static boolean p=false;
 
     @FXML
     public void initialize() {
@@ -69,31 +70,36 @@ public class EditareProduseController {
 
     public void salveaza() {
 
-        Produs p;
-        try {
-            for (Produs prod : App.getUser().getProduse()) {
-                if (idProdus.getText().equals(prod.getId())) {
-                    prod.setDescriere(descriere.getText());
-                    prod.setPret(Double.parseDouble(pret.getText()));
-                    prod.setCantitate(Double.parseDouble(cantitate.getText()));
-                    prod.setDenumire(denumire.getText());
-                    UserService.updateUser(App.getUser());
-                    mesaj.setText("Editare cu succes!");
+        //Produs p;
+        if(p==true) {
+            try {
+                for (Produs prod : App.getUser().getProduse()) {
+                    if (idProdus.getText().equals(prod.getId())) {
+                        prod.setDescriere(descriere.getText());
+                        prod.setPret(Double.parseDouble(pret.getText()));
+                        prod.setCantitate(Double.parseDouble(cantitate.getText()));
+                        prod.setDenumire(denumire.getText());
+                        UserService.updateUser(App.getUser());
+                        mesaj.setText("Editare cu succes!");
+                        p=false;
+                    }
                 }
+            } catch (OutOfStockException e) {
+                mesaj.setText(e.getMessage());
             }
-        }catch(OutOfStockException e){
-            mesaj.setText(e.getMessage());
+            initialize();
         }
-        initialize();
+        else mesaj.setText("Introduceti id-ul unui produs!");
 
     }
 
     public void cautaProdus() {
-        Produs p;
+        //Produs p;
         //System.out.println(idProdus.getText());
         for(Produs prod:App.getUser().getProduse()){
             if(idProdus.getText().toString().equals(prod.getId())){
               //  System.out.println(idProdus.getText()+" "+prod.getId()+"\n");
+                p=true;
                 denumire.setText(prod.getDenumire());
                 pret.setText(prod.getPret()+"");
                 cantitate.setText(prod.getCantitate()+"");

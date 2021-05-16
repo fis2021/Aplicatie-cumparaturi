@@ -72,6 +72,10 @@ public class User {
             produse.add(p);
     }
 
+    public void setProduseNull(){
+        this.produse.clear();
+    }
+
     public ArrayList<Produs>getProduse(){ return this.produse; }
 
     public ArrayList<Comanda> getComenzi(){

@@ -99,6 +99,7 @@ public class IstoricComenziController {
                     s1=s1+"  "+p.getDescriere()+"\n";
                 }
                 listaProduse.setText(s1);
+                mesajE.setText("Mai jos aveti informatii legate de comanda!");
 
 
             }

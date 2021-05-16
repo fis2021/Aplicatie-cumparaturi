@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.util.EventListener;
+
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import org.example.App;
@@ -53,14 +55,18 @@ public class AdaugareProduseController {
     @FXML
     private void addProduct(){
         Produs p;
-        p=new Produs(Double.parseDouble(pret.getText()),Double.parseDouble(cantitate.getText()),descriere.getText(), denumire.getText());
-        App.getUser().addProduse(p);
-        UserService.updateUser(App.getUser());
-        System.out.println(p.toString());
-        denumire.setText("");
-        pret.setText("");
-        cantitate.setText("");
-        descriere.setText("");
-        mesaj.setText("Produsul a fost adaugat cu succes!");
+        if(pret.getText() != null && pret.getText().trim().isEmpty()==false &&cantitate.getText() != null && cantitate.getText().trim().isEmpty()==false && descriere.getText() != null && descriere.getText().trim().isEmpty()==false && denumire.getText() != null && denumire.getText().trim().isEmpty()==false)
+        {
+            p=new Produs(Double.parseDouble(pret.getText()),Double.parseDouble(cantitate.getText()),descriere.getText(), denumire.getText());
+            App.getUser().addProduse(p);
+            UserService.updateUser(App.getUser());
+            System.out.println(p.toString());
+            denumire.setText("");
+            pret.setText("");
+            cantitate.setText("");
+            descriere.setText("");
+            mesaj.setText("Produsul a fost adaugat cu succes!");
+        }
+        else mesaj.setText("Completati toate campurile!");
     }
 }

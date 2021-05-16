@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="702.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.PlasareComandaController">
+<AnchorPane prefHeight="702.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.PlasareComandaController">
     <children>
         <VBox prefHeight="704.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;">
             <children>
@@ -40,8 +37,8 @@
         </VBox>
         <Label layoutX="282.0" layoutY="232.0" />
         <TextArea fx:id="ListaProd" layoutX="331.0" layoutY="363.0" prefHeight="157.0" prefWidth="418.0" />
-        <Button layoutX="484.0" layoutY="548.0" mnemonicParsing="false" onAction="#placeOrder" text="Plaseaza comanda" />
-        <TextField fx:id="nrTel" layoutX="462.0" layoutY="124.0" />
+        <Button id="plaseazaButton" layoutX="484.0" layoutY="548.0" mnemonicParsing="false" onAction="#placeOrder" text="Plaseaza comanda" />
+        <TextField id="nrTel" fx:id="nrTel" layoutX="462.0" layoutY="124.0" />
         <Label layoutX="282.0" layoutY="129.0" text="Numar de telefon :" />
         <Label layoutX="282.0" layoutY="170.0" text="Adresa livrare :" />
         <Label layoutX="446.0" layoutY="37.0" text="Cosul dumneavoastra">
@@ -53,12 +50,16 @@
         <Label layoutX="198.0" layoutY="431.0" text="Produsele din cos:" />
         <Label layoutX="449.0" layoutY="253.0" text="Deocamdata doar ramburs la curier!" />
         <TextArea fx:id="adresa" layoutX="427.0" layoutY="163.0" prefHeight="80.0" prefWidth="272.0" />
-        <Text fx:id="mesaj" layoutX="444.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0">
+        <Text id="mesaj" fx:id="mesaj" layoutX="444.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0">
             <font>
                 <Font size="18.0" />
             </font>
         </Text>
-        <Label fx:id="total" layoutX="569.0" layoutY="314.0" />
         <Label layoutX="467.0" layoutY="314.0" text="Total:" />
+      <Text id="total" fx:id="total" layoutX="504.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="65.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

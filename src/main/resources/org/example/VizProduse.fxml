@@ -45,14 +45,14 @@
       </Label>
       <Label layoutX="346.0" layoutY="321.0" text="Id produs:" />
       <Label layoutX="353.0" layoutY="373.0" text="Cantitate" />
-      <TextField fx:id="idProdus" layoutX="445.0" layoutY="316.0" />
-      <TextField fx:id="cantitate" layoutX="445.0" layoutY="368.0" />
-      <TextArea fx:id="ListaProduse" layoutX="266.0" layoutY="75.0" prefHeight="200.0" prefWidth="642.0" />
-      <Text fx:id="mesaj" layoutX="524.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Button layoutX="489.0" layoutY="424.0" mnemonicParsing="false" onAction="#adaugaInCos" text="Adauga in cos" />
+      <TextField id="idProdus" fx:id="idProdus" layoutX="445.0" layoutY="316.0" />
+      <TextField id="cantitate" fx:id="cantitate" layoutX="445.0" layoutY="368.0" />
+      <TextArea id="listaProduse" fx:id="ListaProduse" layoutX="266.0" layoutY="75.0" prefHeight="200.0" prefWidth="642.0" />
+      <Text id="mesaj" fx:id="mesaj" layoutX="524.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button id="adaugaCosButton" layoutX="489.0" layoutY="424.0" mnemonicParsing="false" onAction="#adaugaInCos" text="Adauga in cos" />
       <Label layoutX="769.0" layoutY="300.0" text="Total:" />
-      <Text fx:id="total" layoutX="774.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 lei" />
-      <Text fx:id="mesajCauta" layoutX="497.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Button layoutX="647.0" layoutY="316.0" mnemonicParsing="false" onAction="#cautaProdus" text="Cauta" />
+      <Text id="total" fx:id="total" layoutX="774.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 lei" />
+      <Text id="mesajCauta" fx:id="mesajCauta" layoutX="497.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button id="cautaButton" layoutX="647.0" layoutY="316.0" mnemonicParsing="false" onAction="#cautaProdus" text="Cauta" />
    </children>
 </AnchorPane>

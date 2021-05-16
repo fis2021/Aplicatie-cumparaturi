@@ -2,6 +2,7 @@ package org.example.services;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.dizitart.no2.objects.filters.ObjectFilters;
 import org.example.models.Comanda;
 import org.example.models.Produs;
 import org.example.models.User;
@@ -10,6 +11,7 @@ import org.example.models.User;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import static org.example.services.FileSystemService.getPathToFile;
@@ -20,6 +22,7 @@ public class ComandaService {
     private static Nitrite database;
 
     public static void initDatabase() {
+        FileSystemService.initDirectory();
          database = Nitrite.builder()
                 .filePath(getPathToFile("Order.db").toFile())
                 .openOrCreate("test2", "test2");
@@ -29,6 +32,14 @@ public class ComandaService {
     public static void updateDatabase(){
         database.close();
         initDatabase();
+    }
+
+    public static List<Comanda> getAllComanda() {
+        return comandaRepository.find().toList();
+    }
+    public static void removeAllComanda(){
+         if(comandaRepository.find() != null)
+            comandaRepository.remove(ObjectFilters.ALL);
     }
 
     public static ArrayList<Comanda> getComenziClient(User client) {
@@ -98,6 +109,9 @@ public class ComandaService {
     }
 
 
+    public static void closeDatabase() {
+        database.close();
+    }
 }
 
 

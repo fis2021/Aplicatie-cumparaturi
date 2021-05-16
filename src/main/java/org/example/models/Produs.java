@@ -1,6 +1,8 @@
 package org.example.models;
 import org.example.App;
 import org.example.exceptions.OutOfStockException;
+import org.example.services.UserService;
+
 public class Produs {
     private static int cod=0;
     private double pret;
@@ -13,6 +15,7 @@ public class Produs {
     }
 
     public Produs(double pret,double cantitate, String descriere,String denumire){
+        cod= UserService.getLastIdOfProduct(App.getUser());
         this.pret=pret;
         this.cantitate=cantitate;
         this.descriere= descriere;

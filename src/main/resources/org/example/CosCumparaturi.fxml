@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane prefHeight="701.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.CosCumparaturiController">
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="701.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.CosCumparaturiController">
    <children>
       <VBox layoutY="2.0" prefHeight="706.0" prefWidth="181.0" style="-fx-background-color: #1AECDB;">
          <children>
@@ -36,30 +35,36 @@
             </Button>
          </children>
       </VBox>
-      <TextArea fx:id="ListaProduse" layoutX="359.0" layoutY="281.0" prefHeight="157.0" prefWidth="418.0" />
+      <TextArea id="listaProdus" fx:id="ListaProduse" layoutX="359.0" layoutY="281.0" prefHeight="157.0" prefWidth="418.0" />
       <Button layoutX="458.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToPlasare" text="Plaseaza comanda" />
-      <Text fx:id="MesajPlasare" layoutX="555.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text id="mesajPlasare" fx:id="MesajPlasare" layoutX="555.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Label layoutX="446.0" layoutY="37.0" text="Cosul dumneavoastra">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="idProdus" layoutX="446.0" layoutY="104.0" />
+      <TextField id="idProdus" fx:id="idProdus" layoutX="446.0" layoutY="104.0" />
       <Text layoutX="233.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare produse cos:">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
       <Label layoutX="342.0" layoutY="104.0" text="Id produs:" />
-      <Button layoutX="661.0" layoutY="99.0" mnemonicParsing="false" onAction="#CautaProdus" text="Cauta produs" />
+      <Button id="cautaButton" layoutX="661.0" layoutY="99.0" mnemonicParsing="false" onAction="#CautaProdus" text="Cauta produs" />
       <Label layoutX="328.0" layoutY="155.0" text="Noua cantitae:" />
-      <TextField fx:id="cantitateNoua" layoutX="446.0" layoutY="150.0" />
-      <Button layoutX="676.0" layoutY="150.0" mnemonicParsing="false" onAction="#modificaCantitate" text="Modifica" />
-      <Button layoutX="470.0" layoutY="201.0" mnemonicParsing="false" onAction="#eliminareProdus" text="Eliminati produsul" />
+      <TextField id="cantitateNoua" fx:id="cantitateNoua" layoutX="446.0" layoutY="150.0" />
+      <Button id="modificaButton" layoutX="676.0" layoutY="150.0" mnemonicParsing="false" onAction="#modificaCantitate" text="Modifica" />
+      <Button id="eliminaButton" layoutX="470.0" layoutY="201.0" mnemonicParsing="false" onAction="#eliminareProdus" text="Eliminati produsul" />
       <Label layoutX="221.0" layoutY="337.0" text="Produsele din cos:" />
-      <Text fx:id="mesajCautare" layoutX="529.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
-      <Text fx:id="mesajEliminare" layoutX="453.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+      <Text id="mesajCautare" fx:id="mesajCautare" layoutX="529.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+      <Text id="mesajEliminare" fx:id="mesajEliminare" layoutX="453.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
       <Label layoutX="453.0" layoutY="448.0" text="Total:" />
-      <Label fx:id="total" layoutX="551.0" layoutY="448.0" text="lei" />
+      <Label   layoutX="551.0" layoutY="448.0" text="lei" />
+      <Text id="mesajCautare" fx:id="mesajCautare1" layoutX="539.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+      <Text id="total" fx:id="total" layoutX="510.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="d">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
