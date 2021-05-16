@@ -66,6 +66,7 @@ public class AdaugareProduseController {
             cantitate.setText("");
             descriere.setText("");
             mesaj.setText("Produsul a fost adaugat cu succes!");
+            UserService.updateUser(App.getUser());
         }
         else mesaj.setText("Completati toate campurile!");
     }
